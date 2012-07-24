@@ -24,7 +24,6 @@
 #ifndef __RS_MATH_RSH__
 #define __RS_MATH_RSH__
 
-
 /**
  * Return a random value between 0 (or min_value) and max_malue.
  */
