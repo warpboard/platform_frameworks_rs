@@ -77,7 +77,7 @@ Context::PushState::~PushState() {
 
 
 uint32_t Context::runScript(Script *s) {
-    PushState(this);
+    PushState state(this);
 
     uint32_t ret = s->run(this);
     return ret;
