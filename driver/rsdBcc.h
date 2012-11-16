@@ -20,12 +20,6 @@
 #include <rs_hal.h>
 #include <rsRuntime.h>
 
-namespace bcc {
-    class BCCContext;
-    class RSCompilerDriver;
-    class RSExecutable;
-}
-
 bool rsdScriptInit(const android::renderscript::Context *, android::renderscript::ScriptC *,
                    char const *resName, char const *cacheDir,
                    uint8_t const *bitcode, size_t bitcodeSize, uint32_t flags);
@@ -91,7 +85,8 @@ android::renderscript::Allocation * rsdScriptGetAllocationForPointer(
                         const android::renderscript::Script *script,
                         const void *);
 
-
+#if 0
+<<<<<<< HEAD
 typedef void (*outer_foreach_t)(
     const android::renderscript::RsForEachStubParamStruct *,
     uint32_t x1, uint32_t x2,
@@ -181,4 +176,7 @@ void rsdScriptInvokeForEachMtlsSetup(const android::renderscript::Context *rsc,
 
 
 
+=======
+>>>>>>> 709a097... Separate CPU driver impl from reference driver.
+#endif
 #endif

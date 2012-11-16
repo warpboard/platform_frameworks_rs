@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (C) 2011-2012 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,11 +15,8 @@
  */
 
 #include "rsdCore.h"
+#include "../cpu_ref/rsd_cpu.h"
 
-#include <bcc/BCCContext.h>
-#include <bcc/Renderscript/RSCompilerDriver.h>
-#include <bcc/Renderscript/RSExecutable.h>
-#include <bcc/Renderscript/RSInfo.h>
 
 #include "rsScript.h"
 #include "rsScriptGroup.h"
@@ -30,23 +27,19 @@ using namespace android;
 using namespace android::renderscript;
 
 
-bool rsdScriptGroupInit(const android::renderscript::Context *rsc,
-                        const android::renderscript::ScriptGroup *sg) {
-    return true;
+bool rsdScriptGroupInit(const Context *rsc, ScriptGroup *sg) {
+    RsdHal *dc = (RsdHal *)rsc->mHal.drv;
+
+    sg->mHal.drv = dc->mCpuRef->createScriptGroup(sg);
+    return sg->mHal.drv != NULL;
 }
 
-void rsdScriptGroupSetInput(const android::renderscript::Context *rsc,
-                            const android::renderscript::ScriptGroup *sg,
-                            const android::renderscript::ScriptKernelID *kid,
-                            android::renderscript::Allocation *) {
+void rsdScriptGroupSetInput(const Context *rsc, const ScriptGroup *sg,
+                            const ScriptKernelID *kid, Allocation *) {
 }
 
-void rsdScriptGroupSetOutput(const android::renderscript::Context *rsc,
-                             const android::renderscript::ScriptGroup *sg,
-                             const android::renderscript::ScriptKernelID *kid,
-                             android::renderscript::Allocation *) {
-}
-
+#if 0
+<<<<<<< HEAD
 void rsdScriptGroupExecute(const android::renderscript::Context *rsc,
                            const android::renderscript::ScriptGroup *sg) {
 
@@ -139,10 +132,22 @@ void rsdScriptGroupExecute(const android::renderscript::Context *rsc,
         rsdScriptLaunchThreads(rsc, s, slot, ins[ct], outs[ct], NULL, 0, NULL, &mtls);
     }
 
+=======
+#else
+void rsdScriptGroupSetOutput(const Context *rsc, const ScriptGroup *sg,
+                             const ScriptKernelID *kid, Allocation *) {
 }
 
-void rsdScriptGroupDestroy(const android::renderscript::Context *rsc,
-                           const android::renderscript::ScriptGroup *sg) {
+void rsdScriptGroupExecute(const Context *rsc, const ScriptGroup *sg) {
+    RsdCpuReference::CpuScriptGroup *sgi = (RsdCpuReference::CpuScriptGroup *)sg->mHal.drv;
+    sgi->execute();
+#endif
+//>>>>>>> 709a097... Separate CPU driver impl from reference driver.
+}
+
+void rsdScriptGroupDestroy(const Context *rsc, const ScriptGroup *sg) {
+    RsdCpuReference::CpuScriptGroup *sgi = (RsdCpuReference::CpuScriptGroup *)sg->mHal.drv;
+    delete sgi;
 }
 
 

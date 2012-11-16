@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include "../cpu_ref/rsd_cpu.h"
+
 #include "rsdCore.h"
 #include "rsdAllocation.h"
 #include "rsdBcc.h"
@@ -154,6 +156,8 @@ static RsdHalFunctions FunctionTable = {
 
 };
 
+#if 0
+<<<<<<< HEAD
 pthread_key_t rsdgThreadTLSKey = 0;
 uint32_t rsdgThreadTLSKeyCount = 0;
 pthread_mutex_t rsdgInitMutex = PTHREAD_MUTEX_INITIALIZER;
@@ -211,6 +215,14 @@ void rsdLaunchThreads(Context *rsc, WorkerCallback_t cbk, void *data) {
     while (android_atomic_acquire_load(&dc->mWorkers.mRunningCount) != 0) {
         dc->mWorkers.mCompleteSignal.wait();
     }
+=======
+#else
+extern const RsdCpuReference::CpuSymbol * rsdLookupRuntimeStub(Context * pContext, char const* name);
+
+static RsdCpuReference::CpuScript * LookupScript(Context *, const Script *s) {
+    return (RsdCpuReference::CpuScript *)s->mHal.drv;
+#endif
+//>>>>>>> 709a097... Separate CPU driver impl from reference driver.
 }
 
 extern "C" bool rsdHalInit(RsContext c, uint32_t version_major,
@@ -225,6 +237,8 @@ extern "C" bool rsdHalInit(RsContext c, uint32_t version_major,
     }
     rsc->mHal.drv = dc;
 
+#if 0
+<<<<<<< HEAD
     pthread_mutex_lock(&rsdgInitMutex);
     if (!rsdgThreadTLSKeyCount) {
         int status = pthread_key_create(&rsdgThreadTLSKey, NULL);
@@ -269,31 +283,27 @@ extern "C" bool rsdHalInit(RsContext c, uint32_t version_major,
     status = pthread_attr_init(&threadAttr);
     if (status) {
         ALOGE("Failed to init thread attribute.");
+=======
+#else
+    dc->mCpuRef = RsdCpuReference::create((Context *)c, version_major, version_minor,
+                                          &rsdLookupRuntimeStub, &LookupScript);
+    if (!dc->mCpuRef) {
+        ALOGE("RsdCpuReference::create for driver hal failed.");
+        free(dc);
+#endif
+//>>>>>>> 709a097... Separate CPU driver impl from reference driver.
         return false;
     }
 
-    for (uint32_t ct=0; ct < dc->mWorkers.mCount; ct++) {
-        status = pthread_create(&dc->mWorkers.mThreadId[ct], &threadAttr, HelperThreadProc, rsc);
-        if (status) {
-            dc->mWorkers.mCount = ct;
-            ALOGE("Created fewer than expected number of RS threads.");
-            break;
-        }
-    }
-    while (android_atomic_acquire_load(&dc->mWorkers.mRunningCount) != 0) {
-        usleep(100);
-    }
-
-    pthread_attr_destroy(&threadAttr);
     return true;
 }
 
 
 void SetPriority(const Context *rsc, int32_t priority) {
     RsdHal *dc = (RsdHal *)rsc->mHal.drv;
-    for (uint32_t ct=0; ct < dc->mWorkers.mCount; ct++) {
-        setpriority(PRIO_PROCESS, dc->mWorkers.mNativeThreadId[ct], priority);
-    }
+
+    dc->mCpuRef->setPriority(priority);
+
     if (dc->mHasGraphics) {
         rsdGLSetPriority(rsc, priority);
     }
@@ -301,27 +311,7 @@ void SetPriority(const Context *rsc, int32_t priority) {
 
 void Shutdown(Context *rsc) {
     RsdHal *dc = (RsdHal *)rsc->mHal.drv;
-
-    dc->mExit = true;
-    dc->mWorkers.mLaunchData = NULL;
-    dc->mWorkers.mLaunchCallback = NULL;
-    android_atomic_release_store(dc->mWorkers.mCount, &dc->mWorkers.mRunningCount);
-    for (uint32_t ct = 0; ct < dc->mWorkers.mCount; ct++) {
-        dc->mWorkers.mLaunchSignals[ct].set();
-    }
-    void *res;
-    for (uint32_t ct = 0; ct < dc->mWorkers.mCount; ct++) {
-        pthread_join(dc->mWorkers.mThreadId[ct], &res);
-    }
-    rsAssert(android_atomic_acquire_load(&dc->mWorkers.mRunningCount) == 0);
-
-    // Global structure cleanup.
-    pthread_mutex_lock(&rsdgInitMutex);
-    --rsdgThreadTLSKeyCount;
-    if (!rsdgThreadTLSKeyCount) {
-        pthread_key_delete(rsdgThreadTLSKey);
-    }
-    pthread_mutex_unlock(&rsdgInitMutex);
-
+    delete dc->mCpuRef;
+    rsc->mHal.drv = NULL;
 }
 
