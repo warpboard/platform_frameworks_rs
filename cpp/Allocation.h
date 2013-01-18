@@ -74,15 +74,12 @@ public:
     void ioSendOutput();
     void ioGetInput();
 
-    //void copyFrom(BaseObj[] d);
-    //void copyFromUnchecked(int[] d);
-    //void copyFromUnchecked(short[] d);
-    //void copyFromUnchecked(byte[] d);
-    //void copyFromUnchecked(float[] d);
-    //void copyFrom(int[] d);
-    //void copyFrom(short[] d);
-    //void copyFrom(byte[] d);
-    //void copyFrom(float[] d);
+    void copyFrom(android::sp<BaseObj>* d, size_t dataLen);
+    void copyFromUnchecked(void* d, size_t dataLen);
+    void copyFrom(int32_t* d, size_t dataLen);
+    void copyFrom(int16_t* d, size_t dataLen);
+    void copyFrom(int8_t* d, size_t dataLen);
+    void copyFrom(float* d, size_t dataLen);
     //void setFromFieldPacker(int xoff, FieldPacker fp);
     //void setFromFieldPacker(int xoff, int component_number, FieldPacker fp);
     void generateMipmaps();
@@ -105,10 +102,10 @@ public:
                          const Allocation *data, size_t dataLen,
                          uint32_t dataXoff, uint32_t dataYoff);
 
-    //void copyTo(byte[] d);
-    //void copyTo(short[] d);
-    //void copyTo(int[] d);
-    //void copyTo(float[] d);
+    void copyTo(int8_t* d, size_t dataLen);
+    void copyTo(int16_t* d, size_t dataLen);
+    void copyTo(int32_t* d, size_t dataLen);
+    void copyTo(float* d, size_t dataLen);
     void resize(int dimX);
     void resize(int dimX, int dimY);
 

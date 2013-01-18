@@ -166,22 +166,40 @@ void Allocation::ioGetInput() {
     rsAllocationIoReceive(mRS->mContext, getID());
 }
 
-/*
-void copyFrom(BaseObj[] d) {
-    mRS.validate();
+void Allocation::copyFrom(android::sp<BaseObj>* d, size_t dataLen) {
     validateIsObject();
-    if (d.length != mCurrentCount) {
-        ALOGE("Array size mismatch, allocation sizeX = " +
-                                             mCurrentCount + ", array length = " + d.length);
+    size_t count = dataLen / sizeof(*d);
+    if (count != mCurrentCount) {
+        ALOGE("Array size mismatch, allocation sizeX = %zu,"
+              "array length = %zu", mCurrentCount, count);
     }
-    int i[] = new int[d.length];
-    for (int ct=0; ct < d.length; ct++) {
-        i[ct] = d[ct].getID();
+    void** i = new void*[count];
+    for (size_t ct=0; ct < count; ct++) {
+        i[ct] = d[ct]->getID();
     }
-    copy1DRangeFromUnchecked(0, mCurrentCount, i);
+    copy1DRangeFromUnchecked(0, mCurrentCount, i, count * sizeof(void*));
+    delete[] i;
 }
-*/
 
+void Allocation::copyFromUnchecked(void* d, size_t dataLen) {
+    copy1DRangeFromUnchecked(0, mCurrentCount, d, dataLen);
+}
+
+void Allocation::copyFrom(int32_t* d, size_t dataLen) {
+    copy1DRangeFrom(0, mCurrentCount, d, dataLen);
+}
+
+void Allocation::copyFrom(int16_t* d, size_t dataLen) {
+    copy1DRangeFrom(0, mCurrentCount, d, dataLen);
+}
+
+void Allocation::copyFrom(int8_t* d, size_t dataLen) {
+    copy1DRangeFrom(0, mCurrentCount, d, dataLen);
+}
+
+void Allocation::copyFrom(float* d, size_t dataLen) {
+    copy1DRangeFrom(0, mCurrentCount, d, dataLen);
+}
 
 /*
 void Allocation::setFromFieldPacker(int xoff, FieldPacker fp) {
@@ -320,31 +338,27 @@ void Allocation::copy2DRangeFrom(uint32_t xoff, uint32_t yoff, uint32_t w, uint3
                             data->mSelectedLOD, data->mSelectedFace);
 }
 
-/*
-void copyTo(byte[] d) {
+void Allocation::copyTo(int8_t* d, size_t dataLen) {
     validateIsInt8();
-    mRS.validate();
-    mRS.nAllocationRead(getID(), d);
+    rsAllocationRead(mRS->mContext, getIDSafe(), d, dataLen);
 }
 
-void copyTo(short[] d) {
+void Allocation::copyTo(int16_t* d, size_t dataLen) {
     validateIsInt16();
-    mRS.validate();
-    mRS.nAllocationRead(getID(), d);
+    rsAllocationRead(mRS->mContext, getIDSafe(), d, dataLen);
 }
 
-void copyTo(int[] d) {
+void Allocation::copyTo(int32_t* d, size_t dataLen) {
     validateIsInt32();
-    mRS.validate();
-    mRS.nAllocationRead(getID(), d);
+    rsAllocationRead(mRS->mContext, getIDSafe(), d, dataLen);
 }
 
-void copyTo(float[] d) {
+void Allocation::copyTo(float* d, size_t dataLen) {
     validateIsFloat32();
-    mRS.validate();
-    mRS.nAllocationRead(getID(), d);
+    rsAllocationRead(mRS->mContext, getIDSafe(), d, dataLen);
 }
 
+/*
 void resize(int dimX) {
     if ((mType.getY() > 0)|| (mType.getZ() > 0) || mType.hasFaces() || mType.hasMipmaps()) {
         throw new RSInvalidStateException("Resize only support for 1D allocations at this time.");
@@ -376,7 +390,6 @@ void resize(int dimX, int dimY) {
     updateCacheInfo(mType);
 }
 */
-
 
 android::sp<Allocation> Allocation::createTyped(RenderScript *rs, sp<const Type> type,
                         RsAllocationMipmapControl mips, uint32_t usage) {
