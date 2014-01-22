@@ -1,7 +1,12 @@
 
 LOCAL_PATH:=$(call my-dir)
 
+ifneq ($(strip $(BUILD_HOST_64bit)),)
+$(info TODO(x86_64): frameworks/rs: Remove warnings. -Werror is disabled)
+rs_base_CFLAGS := -Wno-error -Wall -Wno-unused-parameter -Wno-unused-variable -fpermissive  -Wno-int-to-pointer-cast
+else
 rs_base_CFLAGS := -Werror -Wall -Wno-unused-parameter -Wno-unused-variable
+endif
 ifeq ($(TARGET_BUILD_PDK), true)
   rs_base_CFLAGS += -D__RS_PDK__
 endif
