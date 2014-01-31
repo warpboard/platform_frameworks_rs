@@ -43,11 +43,13 @@ ifeq ($(ARCH_ARM_HAVE_VFP),true)
     LOCAL_ASFLAGS := -mfpu=neon
 endif
 
-LOCAL_SHARED_LIBRARIES += libRS libcutils libutils liblog libsync
+LOCAL_SHARED_LIBRARIES += libRS libcutils libutils liblog libsync libstlport
 LOCAL_SHARED_LIBRARIES += libbcc libbcinfo
 
 LOCAL_C_INCLUDES += frameworks/compile/libbcc/include
 LOCAL_C_INCLUDES += frameworks/rs
+LOCAL_C_INCLUDES += bionic
+LOCAL_C_INCLUDES += external/stlport/stlport
 
 LOCAL_CFLAGS += $(rs_base_CFLAGS)
 
