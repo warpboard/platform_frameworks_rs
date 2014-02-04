@@ -213,8 +213,6 @@ static bool is_force_recompile() {
 #endif  // RS_SERVER
 }
 
-//#define EXTERNAL_BCC_COMPILER 1
-#ifdef EXTERNAL_BCC_COMPILER
 const static char *BCC_EXE_PATH = "/system/bin/bcc";
 
 static bool compileBitcode(const char *cacheDir,
@@ -304,7 +302,6 @@ static bool compileBitcode(const char *cacheDir,
     }
     }
 }
-#endif  // EXTERNAL_BCC_COMPILER
 
 #endif  // !defined(RS_COMPATIBILITY_LIB)
 }  // namespace
@@ -469,16 +466,9 @@ bool RsdCpuScriptImpl::init(char const *resName, char const *cacheDir,
     }
 
     if (exec == NULL) {
-#ifdef EXTERNAL_BCC_COMPILER
         bool built = compileBitcode(cacheDir, resName, (const char *)bitcode,
                                     bitcodeSize, core_lib, useRSDebugContext,
                                     bccPluginName);
-#else
-        bool built = mCompilerDriver->build(*mCompilerContext, cacheDir,
-                                            resName, (const char *)bitcode,
-                                            bitcodeSize, core_lib,
-                                            mCtx->getLinkRuntimeCallback());
-#endif  // EXTERNAL_BCC_COMPILER
         if (built) {
             exec = mCompilerDriver->loadScript(cacheDir, resName,
                                                (const char *)bitcode,
