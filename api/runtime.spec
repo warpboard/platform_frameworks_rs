@@ -225,6 +225,8 @@ arg: #2#1
 comment:
  Return the complementary error function.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -236,6 +238,8 @@ arg: #2#1
 comment:
  Return the error function.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -298,8 +302,8 @@ w: 1, 2, 3, 4
 t: f32
 name: fdim
 ret: #2#1
-arg: #2#1
-arg: #2#1
+arg: #2#1 a
+arg: #2#1 b
 comment:
  Return the positive difference between two values.
 version: 9
@@ -342,7 +346,7 @@ version: 9
 end:
 
 start:
-w: 1, 2, 3, 4
+w: 2, 3, 4
 t: f32
 name: fmax
 ret: #2#1
@@ -366,7 +370,7 @@ version: 9
 end:
 
 start:
-w: 1, 2, 3, 4
+w: 2, 3, 4
 t: f32
 name: fmin
 ret: #2#1
@@ -395,11 +399,11 @@ t: f32
 name: fract
 ret: #2#1
 arg: #2#1 v
-arg: #2#1 *iptr
+arg: #2#1 *floor
 comment:
  Return fractional part of v
 
- @param iptr  iptr[0] will be set to the floor of the input value.
+ @param floor  floor[0] will be set to the floor of the input value.
 version: 9
 end:
 
@@ -429,6 +433,8 @@ comment:
 
  @param v Supports float, float2, float3, float4.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -451,30 +457,6 @@ ret: int#1
 arg: float#1
 comment:
  Return the integer exponent of a value
-version: 9
-end:
-
-start:
-w: 1, 2, 3, 4
-t: f32
-name: ilogb
-ret: #2#1
-arg: #2#1
-arg: int#1
-comment:
- Return (x * 2^y)
-version: 9
-end:
-
-start:
-w: 1, 2, 3, 4
-t: f32
-name: ilogb
-ret: #2#1
-arg: #2#1
-arg: int
-comment:
- Return (x * 2^y)
 version: 9
 end:
 
@@ -511,10 +493,12 @@ w: 1, 2, 3, 4
 t: f32
 name: lgamma
 ret: #2#1
-arg: #2#1 x
+arg: #2#1
 comment:
  Return the log gamma and sign
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -527,6 +511,8 @@ arg: int#1 *y
 comment:
  Return the log gamma and sign
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -534,7 +520,7 @@ w: 1, 2, 3, 4
 t: f32
 name: log
 ret: #2#1
-arg: #2#1 x
+arg: #2#1
 comment:
  Return the natural logarithm.
 version: 9
@@ -545,7 +531,7 @@ w: 1, 2, 3, 4
 t: f32
 name: log2
 ret: #2#1
-arg: #2#1 x
+arg: #2#1
 comment:
  Return the base 2 logarithm.
 version: 9
@@ -556,7 +542,7 @@ w: 1, 2, 3, 4
 t: f32
 name: log10
 ret: #2#1
-arg: #2#1 x
+arg: #2#1
 comment:
  Return the base 10 logarithm.
 version: 9
@@ -567,7 +553,7 @@ w: 1, 2, 3, 4
 t: f32
 name: log1p
 ret: #2#1
-arg: #2#1 x
+arg: #2#1
 comment:
  Return the natural logarithm of (v + 1.0f)
 version: 9
@@ -578,7 +564,7 @@ w: 1, 2, 3, 4
 t: f32
 name: logb
 ret: #2#1
-arg: #2#1 x
+arg: #2#1
 comment:
  Compute the exponent of the value.
 version: 9
@@ -690,12 +676,14 @@ w: 1, 2, 3, 4
 t: f32
 name: remquo
 ret: #2#1
-arg: #2#1
-arg: #2#1
-arg: int#1 *
+arg: #2#1 b
+arg: #2#1 c
+arg: int#1 *d
 comment:
  todo
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -730,6 +718,8 @@ arg: #2#1
 comment:
  Round to the nearest integral value.  Half values are rounded away from zero.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -845,6 +835,8 @@ arg: #2#1
 comment:
  Compute the gamma function of a value.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -1084,7 +1076,7 @@ version: 9
 end:
 
 start:
-w: 1, 2, 3, 4
+w: 2, 3, 4
 t: f32
 name: clamp
 ret: #2#1
@@ -1118,7 +1110,7 @@ version: 19
 end:
 
 start:
-w: 1, 2, 3, 4
+w: 2, 3, 4
 t: u8, u16, u32, u64, i8, i16, i32, i64
 name: clamp
 ret: #2#1
@@ -1159,7 +1151,7 @@ version: 9
 end:
 
 start:
-w: 1, 2, 3, 4
+w: 2, 3, 4
 t: f32
 name: mix
 ret: #2#1
@@ -1252,6 +1244,7 @@ arg: #2#1 rhs
 comment:
  Compute the cross product of two vectors.
 version: 9
+test: vector
 end:
 
 start:
@@ -1264,6 +1257,7 @@ arg: #2#1 rhs
 comment:
  Compute the dot product of two vectors.
 version: 9
+test: vector
 end:
 
 start:
@@ -1275,6 +1269,7 @@ arg: #2#1 v
 comment:
  Compute the length of a vector.
 version: 9
+test: vector
 end:
 
 start:
@@ -1287,6 +1282,8 @@ arg: #2#1 rhs
 comment:
  Compute the distance between two points.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -1298,6 +1295,8 @@ arg: #2#1 v
 comment:
  Normalize a vector.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -1309,6 +1308,8 @@ arg: #2#1 v
 comment:
  Return the approximate reciprocal of a value.
 version: 17
+# TODO Support for half to be fixed
+test: none
 end:
 
 start:
@@ -1320,6 +1321,8 @@ arg: #2#1 v
 comment:
  Return the approximate square root of a value.
 version: 17
+# TODO Support for half to be fixed
+test: none
 end:
 
 start:
@@ -1331,6 +1334,8 @@ arg: #2#1 v
 comment:
  Return the approximate value of (1.f / sqrt(value)).
 version: 17
+# TODO Support for half to be fixed
+test: none
 end:
 
 start:
@@ -1342,6 +1347,7 @@ arg: #2#1 v
 comment:
  Compute the approximate length of a vector.
 version: 17
+test: vector
 end:
 
 start:
@@ -1354,6 +1360,8 @@ arg: #2#1 rhs
 comment:
  Compute the approximate distance between two points.
 version: 17
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -1365,6 +1373,8 @@ arg: #2#1 v
 comment:
  Approximately normalize a vector.
 version: 17
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
