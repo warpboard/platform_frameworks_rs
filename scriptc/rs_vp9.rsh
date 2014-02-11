@@ -24,6 +24,9 @@
 #include "rs_iadst.rsh"
 #include "rs_fadst.rsh"
 #include "rs_walsh.rsh"
+#include "rs_intra_predict.rsh"
+#include "rs_filter.rsh"
+#include "rs_convolve.rsh"
 
 #endif
 
