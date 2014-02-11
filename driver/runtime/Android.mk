@@ -34,7 +34,10 @@ clcore_base_files := \
     rs_dct.c \
     rs_iadst.c  \
     rs_fadst.c  \
-    rs_walsh.c
+    rs_walsh.c \
+    rs_intra_predict.c \
+    rs_filter.c \
+    rs_convolve.c
 
 clcore_files := \
     $(clcore_base_files) \
