@@ -60,6 +60,14 @@
 #include "rs_quaternion.rsh"
 #include "rs_sampler.rsh"
 #include "rs_time.rsh"
+#include "rs_idct.rsh"
+#include "rs_dct.rsh"
+#include "rs_iadst.rsh"
+#include "rs_fadst.rsh"
+#include "rs_walsh.rsh"
+#include "rs_intra_predict.rsh"
+#include "rs_filter.rsh"
+#include "rs_convolve.rsh"
 
 /**
  * Send a message back to the client.  Will not block and returns true
