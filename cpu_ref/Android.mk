@@ -29,8 +29,10 @@ LOCAL_SRC_FILES:= \
 	rsCpuIntrinsicConvolve3x3.cpp \
 	rsCpuIntrinsicConvolve5x5.cpp \
 	rsCpuIntrinsicHistogram.cpp \
+	rsCpuIntrinsicInterPred.cpp \
 	rsCpuIntrinsicLUT.cpp \
-	rsCpuIntrinsicYuvToRGB.cpp
+	rsCpuIntrinsicYuvToRGB.cpp \
+	convolve/convolve.c
 
 ifeq ($(ARCH_ARM_HAVE_NEON),true)
     LOCAL_CFLAGS += -DARCH_ARM_HAVE_NEON
@@ -41,6 +43,12 @@ ifeq ($(ARCH_ARM_HAVE_VFP),true)
     LOCAL_SRC_FILES+= \
         rsCpuIntrinsics_neon.S \
         rsCpuIntrinsics_neon_ColorMatrix.S
+    LOCAL_SRC_FILES += \
+        convolve/convolve_copy_neon.s \
+        convolve/convolve_avg_neon.s \
+        convolve/convolve8_neon.s \
+        convolve/convolve8_avg_neon.s \
+        convolve/convolve_neon.c
     LOCAL_ASFLAGS := -mfpu=neon
 endif
 
