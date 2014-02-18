@@ -1428,6 +1428,20 @@ class ScriptIntrinsic3DLUT : public ScriptIntrinsic {
      */
     void setLUT(sp<Allocation> lut);
 };
+/**
+ * Intrinsic for InterPrediction
+ */
+class ScriptIntrinsicInterPred : public ScriptIntrinsic {
+ private:
+    ScriptIntrinsicInterPred(sp<RS> rs, sp<const Element> e);
+ public:
+    static sp<ScriptIntrinsicInterPred> create(sp<RS> rs, sp<const Element> e);
+
+    void forEach(sp<Allocation> asize);
+    void setRef(sp<Allocation> ref);
+    void setParamCount(int fri, int sec, int offset);
+    void setParam(sp<Allocation> param);
+};
 
 /**
  * Intrinsic kernel for blending two Allocations.

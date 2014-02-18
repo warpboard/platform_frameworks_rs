@@ -66,6 +66,57 @@ void ScriptIntrinsic3DLUT::setLUT(sp<Allocation> lut) {
     Script::setVar(0, lut);
 }
 
+sp<ScriptIntrinsicInterPred> ScriptIntrinsicInterPred::create(sp<RS> rs, sp<const Element> e) {
+    if (e->isCompatible(Element::U8(rs)) == false) {
+        rs->throwError(RS_ERROR_INVALID_ELEMENT, "Element not supported for intrinsic");
+        return NULL;
+    }
+    ALOGV("ScriptIntrinsicInterPred::create");
+    return new ScriptIntrinsicInterPred(rs, e);
+}
+
+ScriptIntrinsicInterPred::ScriptIntrinsicInterPred(sp<RS> rs, sp<const Element> e)
+    : ScriptIntrinsic(rs, RS_SCRIPT_INTRINSIC_ID_INTER_PRED, e) {
+    ALOGV("ScriptIntrinsic::ScriptIntrinsicInterPred");
+}
+
+void ScriptIntrinsicInterPred::forEach(sp<Allocation> asize) {
+    if (asize->getType()->getElement()->isCompatible(mElement) == false) {
+        ALOGV("asize getType getElement is Compatible");
+        mRS->throwError(RS_ERROR_INVALID_ELEMENT, "InterPred forEach element mismatch");
+        return;
+    }
+    ALOGV("Script for Each");
+    Script::forEach(0, asize, NULL, NULL, 0);
+}
+
+void ScriptIntrinsicInterPred::setRef(sp<Allocation> ref) {
+    sp<const Type> t = ref->getType();
+    if (!t->getElement()->isCompatible(mElement)) {
+        mRS->throwError(RS_ERROR_INVALID_ELEMENT, "setRef element does not match");
+        return;
+    }
+    Script::setVar(0, ref);
+}
+
+void ScriptIntrinsicInterPred::setParam(sp<Allocation> param) {
+    sp<const Type> t = param->getType();
+    if (!t->getElement()->isCompatible(mElement)) {
+        mRS->throwError(RS_ERROR_INVALID_ELEMENT, "setFriParam element does not match");
+        return;
+    }
+    Script::setVar(1, param);
+}
+
+void ScriptIntrinsicInterPred::setParamCount(int fri, int sec, int offset) {
+    ALOGV("setParamCount fri %d, sec %d", fri, sec);
+    FieldPacker fp(12);
+    fp.add(fri);
+    fp.add(sec);
+    fp.add(offset);
+    Script::setVar(2, fp.getData(), fp.getLength());
+}
+
 sp<ScriptIntrinsicBlend> ScriptIntrinsicBlend::create(sp<RS> rs, sp<const Element> e) {
     if (e->isCompatible(Element::U8_4(rs)) == false) {
         rs->throwError(RS_ERROR_INVALID_ELEMENT, "Element not supported for intrinsic");
