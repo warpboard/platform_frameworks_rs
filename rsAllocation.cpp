@@ -94,6 +94,14 @@ void Allocation::syncAll(Context *rsc, RsAllocationUsageType src) {
     rsc->mHal.funcs.allocation.syncAll(rsc, this, src);
 }
 
+void * Allocation::lock(const Context *rsc, bool readOnly, size_t start, size_t end) {
+    return mRSC->mHal.funcs.allocation.lock1D(rsc, this);
+}
+
+void Allocation::unlock(const Context *rsc, size_t start, size_t end) {
+    mRSC->mHal.funcs.allocation.unlock1D(rsc, this);
+}
+
 void Allocation::data(Context *rsc, uint32_t xoff, uint32_t lod,
                          uint32_t count, const void *data, size_t sizeBytes) {
     const size_t eSize = mHal.state.type->getElementSizeBytes();
@@ -714,6 +722,17 @@ void rsi_AllocationIoSend(Context *rsc, RsAllocation valloc) {
 void rsi_AllocationIoReceive(Context *rsc, RsAllocation valloc) {
     Allocation *alloc = static_cast<Allocation *>(valloc);
     alloc->ioReceive(rsc);
+}
+
+void rsi_AllocationLock(Context *rsc, RsAllocation valloc, bool readOnly,
+                        size_t start, size_t end) {
+    Allocation *alloc = static_cast<Allocation *>(valloc);
+    alloc->lock(rsc, readOnly, start, end);
+}
+
+void rsi_AllocationUnlock(Context *rsc, RsAllocation valloc, size_t start, size_t end) {
+    Allocation *alloc = static_cast<Allocation *>(valloc);
+    alloc->unlock(rsc, start, end);
 }
 
 void rsi_Allocation1DRead(Context *rsc, RsAllocation va, uint32_t xoff, uint32_t lod,

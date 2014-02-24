@@ -130,6 +130,19 @@ AllocationCopyToBitmap {
     param void * data
     }
 
+AllocationLock {
+    param RsAllocation va
+    param bool readOnly
+    param size_t startElement
+    param size_t endElement
+    ret void *s
+    }
+
+AllocationUnlock {
+    param RsAllocation va
+    param size_t startElement
+    param size_t endElement
+    }
 
 Allocation1DData {
     param RsAllocation va

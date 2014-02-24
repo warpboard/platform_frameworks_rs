@@ -347,6 +347,9 @@ public:
     void ioSendOutput();
     void ioGetInput();
 
+    void * lock(bool readOnly = false, size_t start = 0, size_t end = 0xffffffff);
+    void unlock(size_t start = 0, size_t end = 0xffffffff);
+
     /**
      * Generate a mipmap chain. This is only valid if the Type of the Allocation
      * includes mipmaps. This function will generate a complete set of mipmaps

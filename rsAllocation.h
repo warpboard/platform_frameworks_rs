@@ -163,6 +163,9 @@ public:
     void ioSend(const Context *rsc);
     void ioReceive(const Context *rsc);
 
+    void * lock(const Context *rsc, bool readOnly, size_t start, size_t end);
+    void unlock(const Context *rsc, size_t start, size_t end);
+
 protected:
     Vector<const Program *> mToDirtyList;
     ObjectBaseRef<const Type> mType;

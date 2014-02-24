@@ -169,8 +169,30 @@ void Allocation::ioGetInput() {
 #endif
 }
 
-void Allocation::generateMipmaps() {
-    tryDispatch(mRS, RS::dispatch->AllocationGenerateMipmaps(mRS->getContext(), getID()));
+void * Allocation::lock(bool readOnly, size_t start, size_t end) {
+    void *p = NULL;
+    if ((mUsage & RS_ALLOCATION_USAGE_READ_ONLY) && !readOnly) {
+        mRS->throwError(RS_ERROR_INVALID_PARAMETER, "Read only Allocation must be locked as read only.");
+        return NULL;
+    }
+    if ((start != 0) || (end != 0xffffffff)) {
+        mRS->throwError(RS_ERROR_INVALID_PARAMETER, "Subranges not supported.");
+        return NULL;
+    }
+    p = RS::dispatch->AllocationLock(mRS->getContext(), getIDSafe(), readOnly, start, end);
+    if (mRS->getError() != RS_SUCCESS) {
+        mRS->throwError(RS_ERROR_RUNTIME_ERROR, "Allocation lock failed");
+        p = NULL;
+    }
+    return p;
+}
+
+void Allocation::unlock(size_t start, size_t end) {
+    if ((start != 0) || (end != 0xffffffff)) {
+        mRS->throwError(RS_ERROR_INVALID_PARAMETER, "Subranges not supported.");
+        return;
+    }
+    tryDispatch(mRS, RS::dispatch->AllocationUnlock(mRS->getContext(), getIDSafe(), start, end));
 }
 
 void Allocation::copy1DRangeFrom(uint32_t off, size_t count, const void *data) {
