@@ -130,6 +130,15 @@ AllocationCopyToBitmap {
     param void * data
     }
 
+AllocationGetPtr {
+    param RsAllocation va
+    param uint32_t lod
+    param RsAllocationCubemapFace face
+    param uint32_t z
+    param uint32_t array
+    param size_t *stride
+    ret void *s
+    }
 
 Allocation1DData {
     param RsAllocation va

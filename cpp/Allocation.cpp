@@ -169,8 +169,26 @@ void Allocation::ioGetInput() {
 #endif
 }
 
-void Allocation::generateMipmaps() {
-    tryDispatch(mRS, RS::dispatch->AllocationGenerateMipmaps(mRS->getContext(), getID()));
+void * Allocation::getPointer(size_t *stride, uint32_t lod, RsAllocationCubemapFace face,
+                              uint32_t z, uint32_t array) {
+    void *p = NULL;
+    if (array != 0) {
+        mRS->throwError(RS_ERROR_INVALID_PARAMETER, "Array paramater not supported.");
+        return NULL;
+    }
+    if (z && (z >= mCurrentDimZ)) {
+        mRS->throwError(RS_ERROR_INVALID_PARAMETER, "Z value out of range.");
+        return NULL;
+    }
+
+    // TODO, check LOD and FACE here.
+
+    p = RS::dispatch->AllocationGetPtr(mRS->getContext(), getIDSafe(), lod, face, z, array, stride);
+    if (mRS->getError() != RS_SUCCESS) {
+        mRS->throwError(RS_ERROR_RUNTIME_ERROR, "Allocation lock failed");
+        p = NULL;
+    }
+    return p;
 }
 
 void Allocation::copy1DRangeFrom(uint32_t off, size_t count, const void *data) {

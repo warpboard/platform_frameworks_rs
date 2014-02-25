@@ -559,6 +559,9 @@ public:
                                         uint32_t usage = RS_ALLOCATION_USAGE_SCRIPT);
 
 
+    void * getPointer(size_t *stride = NULL, uint32_t lod = 0,
+                      RsAllocationCubemapFace face = RS_ALLOCATION_CUBEMAP_FACE_POSITIVE_X,
+                      uint32_t z = 0, uint32_t array = 0);
 };
 
  /**
