@@ -57,6 +57,7 @@ typedef void (*AllocationGenerateMipmapsFnPtr) (RsContext, RsAllocation);
 typedef void (*AllocationReadFnPtr) (RsContext, RsAllocation, void*, size_t);
 typedef void (*Allocation1DReadFnPtr) (RsContext, RsAllocation, uint32_t, uint32_t, uint32_t, void*, size_t);
 typedef void (*Allocation2DReadFnPtr) (RsContext, RsAllocation, uint32_t, uint32_t, uint32_t, RsAllocationCubemapFace, uint32_t, uint32_t, void*, size_t, size_t);
+typedef void * (*AllocationGetPtrFnPtr) (RsContext, RsAllocation, uint32_t lod, RsAllocationCubemapFace face, uint32_t z, uint32_t array, size_t *stride);
 typedef void (*AllocationSyncAllFnPtr) (RsContext, RsAllocation, RsAllocationUsageType);
 typedef void (*AllocationResize1DFnPtr) (RsContext, RsAllocation, uint32_t);
 typedef void (*AllocationCopy2DRangeFnPtr) (RsContext, RsAllocation, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, RsAllocation, uint32_t, uint32_t, uint32_t, uint32_t);
@@ -128,6 +129,7 @@ typedef struct {
     AllocationReadFnPtr AllocationRead;
     Allocation1DReadFnPtr Allocation1DRead;
     Allocation2DReadFnPtr Allocation2DRead;
+    AllocationGetPtrFnPtr AllocationGetPtr;
     AllocationSyncAllFnPtr AllocationSyncAll;
     AllocationResize1DFnPtr AllocationResize1D;
     AllocationCopy2DRangeFnPtr AllocationCopy2DRange;

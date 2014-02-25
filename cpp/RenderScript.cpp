@@ -261,6 +261,13 @@ static bool loadSymbols(void* handle) {
         ALOGV("Couldn't initialize RS::dispatch->Allocation2DRead");
         return false;
     }
+
+    RS::dispatch->AllocationGetPtr = (AllocationGetPtrFnPtr)dlsym(handle, "rsAllocationGetPtr");
+    if (RS::dispatch->AllocationGetPtr == NULL) {
+        ALOGV("Couldn't initialize RS::dispatch->AllocationGetPtr");
+        //return false;
+    }
+
     RS::dispatch->AllocationSyncAll = (AllocationSyncAllFnPtr)dlsym(handle, "rsAllocationSyncAll");
     if (RS::dispatch->AllocationSyncAll == NULL) {
         ALOGV("Couldn't initialize RS::dispatch->AllocationSyncAll");
