@@ -70,6 +70,19 @@ static void memcpy(void* dst, void* src, size_t size) {
         rsGetElementAt_##T(rs_allocation a, T *val, uint32_t x, uint32_t y, uint32_t z); \
                                                                         \
     extern void __attribute__((overloadable))                           \
+        __rsAllocationVStoreXImpl_##T(rs_allocation a, const T val, uint32_t x);  \
+    extern void __attribute__((overloadable))                           \
+        __rsAllocationVStoreXImpl_##T(rs_allocation a, const T val, uint32_t x, uint32_t y); \
+    extern void __attribute__((overloadable))                           \
+        __rsAllocationVStoreXImpl_##T(rs_allocation a, const T val, uint32_t x, uint32_t y, uint32_t z); \
+    extern T __attribute__((overloadable))                           \
+        __rsAllocationVLoadXImpl_##T(rs_allocation a, uint32_t x);      \
+    extern T __attribute__((overloadable))                           \
+        __rsAllocationVLoadXImpl_##T(rs_allocation a, uint32_t x, uint32_t y); \
+    extern T __attribute__((overloadable))                           \
+        __rsAllocationVLoadXImpl_##T(rs_allocation a, uint32_t x, uint32_t y, uint32_t z); \
+                                                                        \
+    extern void __attribute__((overloadable))                           \
     rsSetElementAt_##T(rs_allocation a, T val, uint32_t x) {            \
         rsSetElementAt_##T(a, &val, x);                                 \
     }                                                                   \
@@ -98,8 +111,32 @@ static void memcpy(void* dst, void* src, size_t size) {
         T tmp;                                                          \
         rsGetElementAt_##T(a, &tmp, x, y, z);                           \
         return tmp;                                                     \
+    }                                                                   \
+                                                                        \
+    extern void __attribute__((overloadable))                           \
+    rsAllocationVStoreX_##T(rs_allocation a, T val, uint32_t x) {       \
+        __rsAllocationVStoreXImpl_##T(a, val, x, 0, 0);                 \
+    }                                                                   \
+    extern void __attribute__((overloadable))                           \
+    rsAllocationVStoreX_##T(rs_allocation a, T val, uint32_t x, uint32_t y) { \
+        __rsAllocationVStoreXImpl_##T(a, val, x, y, 0);                 \
+    }                                                                   \
+    extern void __attribute__((overloadable))                           \
+    rsAllocationVStoreX_##T(rs_allocation a, T val, uint32_t x, uint32_t y, uint32_t z) { \
+        __rsAllocationVStoreXImpl_##T(a, val, x, y, z);                 \
+    }                                                                   \
+    extern T __attribute__((overloadable))                              \
+    rsAllocationVLoadX_##T(rs_allocation a, uint32_t x) {               \
+        return __rsAllocationVLoadXImpl_##T(a, x, 0, 0);                \
+    }                                                                   \
+    extern T __attribute__((overloadable))                              \
+    rsAllocationVLoadX_##T(rs_allocation a, uint32_t x, uint32_t y) {   \
+        return __rsAllocationVLoadXImpl_##T(a, x, y, 0);                \
+    }                                                                   \
+    extern T __attribute__((overloadable))                              \
+    rsAllocationVLoadX_##T(rs_allocation a, uint32_t x, uint32_t y, uint32_t z) { \
+        return __rsAllocationVLoadXImpl_##T(a, x, y, z);                \
     }
-
 #else
 
 uint8_t*
@@ -109,6 +146,18 @@ rsOffset(rs_allocation a, uint32_t sizeOf, uint32_t x, uint32_t y,
     uint8_t *p = (uint8_t *)alloc->mHal.drvState.lod[0].mallocPtr;
     const uint32_t stride = alloc->mHal.drvState.lod[0].stride;
     const uint32_t dimY = alloc->mHal.drvState.lod[0].dimY;
+    uint8_t *dp = &p[(sizeOf * x) + (y * stride) +
+                     (z * stride * dimY)];
+    return dp;
+}
+
+uint8_t*
+rsOffsetNs(rs_allocation a, uint32_t x, uint32_t y, uint32_t z) {
+    Allocation_t *alloc = (Allocation_t *)a.p;
+    uint8_t *p = (uint8_t *)alloc->mHal.drvState.lod[0].mallocPtr;
+    const uint32_t stride = alloc->mHal.drvState.lod[0].stride;
+    const uint32_t dimY = alloc->mHal.drvState.lod[0].dimY;
+    const uint32_t sizeOf = alloc->mHal.state.elementSizeBytes;;
     uint8_t *dp = &p[(sizeOf * x) + (y * stride) +
                      (z * stride * dimY)];
     return dp;
