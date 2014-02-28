@@ -79,7 +79,7 @@ extern T##4 __attribute__((overloadable)) clamp(T##4 amount, T low, T high) {   
     return r;                                                                       \
 }
 
-#if !defined(__i386__)
+#if !defined(__i386__) && !defined(__x86_64__)
 
 _CLAMP(float);
 
