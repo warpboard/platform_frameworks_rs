@@ -30,6 +30,7 @@ LOCAL_SRC_FILES:= \
 	rsCpuIntrinsicConvolve5x5.cpp \
 	rsCpuIntrinsicHistogram.cpp \
 	rsCpuIntrinsicInterPred.cpp \
+	rsCpuIntrinsicLoopFilter.cpp \
 	rsCpuIntrinsicLUT.cpp \
 	rsCpuIntrinsicYuvToRGB.cpp \
 	convolve/convolve.c
@@ -42,7 +43,10 @@ ifeq ($(ARCH_ARM_HAVE_VFP),true)
     LOCAL_CFLAGS += -DARCH_ARM_HAVE_VFP
     LOCAL_SRC_FILES+= \
         rsCpuIntrinsics_neon.S \
-        rsCpuIntrinsics_neon_ColorMatrix.S
+        rsCpuIntrinsics_neon_ColorMatrix.S \
+        vp9_loopfilter_16_neon.S \
+        vp9_loopfilter_neon.S \
+        vp9_mb_lpf_neon.S
     LOCAL_SRC_FILES += \
         convolve/convolve_copy_neon.s \
         convolve/convolve_avg_neon.s \
@@ -57,6 +61,7 @@ LOCAL_SHARED_LIBRARIES += libbcc libbcinfo
 
 LOCAL_C_INCLUDES += frameworks/compile/libbcc/include
 LOCAL_C_INCLUDES += frameworks/rs
+LOCAL_C_INCLUDES += system/core/include
 
 LOCAL_CFLAGS += $(rs_base_CFLAGS)
 
