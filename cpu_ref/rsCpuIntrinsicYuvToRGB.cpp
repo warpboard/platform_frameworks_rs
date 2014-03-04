@@ -152,7 +152,7 @@ void RsdCpuScriptIntrinsicYuvToRGB::kernel(const RsForEachStubParamStruct *p,
         cstep = 2;
     }
 
-#if defined(ARCH_ARM_HAVE_VFP)
+#if defined(ARCH_ARM_HAVE_VFP) && !defined(RS_COMPATIBILITY_LIB)
     if((x2 > x1) && gArchUseSIMD) {
         int32_t len = x2 - x1;
         if (cstep == 1) {

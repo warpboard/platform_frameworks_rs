@@ -265,7 +265,7 @@ void RsdCpuScriptIntrinsicBlur::kernelU4(const RsForEachStubParamStruct *p,
     uint32_t x1 = xstart;
     uint32_t x2 = xend;
 
-#if defined(ARCH_ARM_HAVE_VFP)
+#if defined(ARCH_ARM_HAVE_VFP) && !defined(RS_COMPATIBILITY_LIB)
     if (gArchUseSIMD) {
         rsdIntrinsicBlurU4_K(out, (uchar4 const *)(pin + stride * p->y), p->dimX, p->dimY,
                  stride, x1, p->y, x2 - x1, cp->mIradius, cp->mIp + cp->mIradius);
@@ -324,7 +324,7 @@ void RsdCpuScriptIntrinsicBlur::kernelU1(const RsForEachStubParamStruct *p,
     uint32_t x1 = xstart;
     uint32_t x2 = xend;
 
-#if defined(ARCH_ARM_HAVE_VFP)
+#if defined(ARCH_ARM_HAVE_VFP) && !defined(RS_COMPATIBILITY_LIB)
     if (gArchUseSIMD) {
         rsdIntrinsicBlurU1_K(out, pin + stride * p->y, p->dimX, p->dimY,
                  stride, x1, p->y, x2 - x1, cp->mIradius, cp->mIp + cp->mIradius);

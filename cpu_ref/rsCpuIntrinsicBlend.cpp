@@ -104,7 +104,7 @@ void RsdCpuScriptIntrinsicBlend::kernel(const RsForEachStubParamStruct *p,
     uint32_t x1 = xstart;
     uint32_t x2 = xend;
 
-#if defined(ARCH_ARM_HAVE_VFP)
+#if defined(ARCH_ARM_HAVE_VFP) && !defined(RS_COMPATIBILITY_LIB)
     if (gArchUseSIMD) {
         if (rsdIntrinsicBlend_K(out, in, p->slot, x1, x2) >= 0)
             return;
