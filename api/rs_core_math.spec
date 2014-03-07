@@ -19,11 +19,12 @@ w: 2, 3, 4
 t: u8, u16, u32, u64, i8, i16, i32, i64, f32, f64
 t: u8, u16, u32, u64, i8, i16, i32, i64, f32, f64
 name: convert_#3#1
-arg: #2#1 v compatible(#3)
+arg: #2#1
 ret: #3#1
 comment:
  Component wise conversion from #2#1 to #3#1
 version: 9
+test: noverify
 end:
 
 start:
@@ -31,7 +32,7 @@ w: 1, 2, 3, 4
 t: f32
 name: acos
 ret: #2#1
-arg: #2#1 v range(-1,1)
+arg: #2#1
 comment:
  acos
 version: 9
@@ -53,7 +54,7 @@ w: 1, 2, 3, 4
 t: f32
 name: acospi
 ret: #2#1
-arg: #2#1 v range(-1,1)
+arg: #2#1
 comment:
  acospi
 version: 9
@@ -64,7 +65,7 @@ w: 1, 2, 3, 4
 t: f32
 name: asin
 ret: #2#1
-arg: #2#1 v range(-1,1)
+arg: #2#1
 comment:
  asin
 version: 9
@@ -86,7 +87,7 @@ w: 1, 2, 3, 4
 t: f32
 name: asinpi
 ret: #2#1
-arg: #2#1 v range(-1,1)
+arg: #2#1
 comment:
  Return the inverse sine divided by PI.
 version: 9
@@ -97,7 +98,7 @@ w: 1, 2, 3, 4
 t: f32
 name: atan
 ret: #2#1
-arg: #2#1 v range(-1,1)
+arg: #2#1
 comment:
  Return the inverse tangent.
 version: 9
@@ -131,7 +132,7 @@ w: 1, 2, 3, 4
 t: f32
 name: atanpi
 ret: #2#1
-arg: #2#1 v range(-1,1)
+arg: #2#1
 comment:
  Return the inverse tangent divided by PI.
 version: 9
@@ -225,6 +226,8 @@ arg: #2#1
 comment:
  Return the complementary error function.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -236,6 +239,8 @@ arg: #2#1
 comment:
  Return the error function.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -269,6 +274,8 @@ arg: #2#1
 comment:
  Return 10 ^ value.
 version: 9
+#TODO
+test: noverify
 end:
 
 start:
@@ -332,7 +339,6 @@ end:
 start:
 w: 1, 2, 3, 4
 t: f32
-# TODO What is the difference between this and max?  Same for min.
 name: fmax
 ret: #2#1
 arg: #2#1 x
@@ -430,6 +436,8 @@ comment:
 
  @param v Supports float, float2, float3, float4.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -453,6 +461,8 @@ arg: float#1
 comment:
  Return the integer exponent of a value
 version: 9
+#TODO
+test: noverify
 end:
 
 start:
@@ -492,6 +502,8 @@ arg: #2#1
 comment:
  Return the log gamma and sign
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -504,6 +516,8 @@ arg: int#1 *y
 comment:
  Return the log gamma and sign
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -559,6 +573,8 @@ arg: #2#1
 comment:
  Compute the exponent of the value.
 version: 9
+#TODO
+test: noverify
 end:
 
 start:
@@ -599,6 +615,7 @@ arg: uint#1
 comment:
  generate a nan
 version: 9
+test: noverify
 end:
 
 start:
@@ -635,6 +652,8 @@ arg: int#1 y
 comment:
  Return x ^ y.
 version: 9
+#TODO
+test: noverify
 end:
 
 start:
@@ -642,7 +661,7 @@ w: 1, 2, 3, 4
 t: f32
 name: powr
 ret: #2#1
-arg: #2#1 x range(0,3000)
+arg: #2#1 x range(0,200)
 arg: #2#1 y
 comment:
  Return x ^ y.
@@ -669,10 +688,12 @@ name: remquo
 ret: #2#1
 arg: #2#1 b
 arg: #2#1 c
-arg: int#1 *d conditional
+arg: int#1 *d
 comment:
  Return the quotient and the remainder of b/c
 version: 9
+#TODO
+test: noverify
 end:
 
 start:
@@ -696,8 +717,6 @@ arg: int#1 n
 comment:
  Compute the Nth root of a value.
 version: 9
-# TODO re-enable once how to handle zero is decided
-test: noverify
 end:
 
 start:
@@ -824,6 +843,8 @@ arg: #2#1
 comment:
  Compute the gamma function of a value.
 version: 9
+# TODO Test to be implemented
+test: noverify
 end:
 
 start:
@@ -1231,7 +1252,8 @@ arg: #2#1 rhs
 comment:
  Compute the cross product of two vectors.
 version: 9
-test: vector
+# TODO test: vector
+test: noverify
 end:
 
 start:
@@ -1244,7 +1266,8 @@ arg: #2#1 rhs
 comment:
  Compute the dot product of two vectors.
 version: 9
-test: vector
+# TODO test: vector
+test: noverify
 end:
 
 start:
@@ -1256,7 +1279,8 @@ arg: #2#1 v
 comment:
  Compute the length of a vector.
 version: 9
-test: vector
+# TODO test: vector
+test: noverify
 end:
 
 start:
@@ -1269,7 +1293,8 @@ arg: #2#1 rhs
 comment:
  Compute the distance between two points.
 version: 9
-test: vector
+# TODO test: vector
+test: noverify
 end:
 
 start:
@@ -1281,7 +1306,8 @@ arg: #2#1 v
 comment:
  Normalize a vector.
 version: 9
-test: vector
+# TODO test: vector
+test: noverify
 end:
 
 start:
@@ -1293,7 +1319,7 @@ arg: #2#1 v
 comment:
  Return the approximate reciprocal of a value.
 version: 17
-# TODO enable once precision is improved
+# TODO fix & implement
 test: noverify
 end:
 
@@ -1328,7 +1354,8 @@ arg: #2#1 v
 comment:
  Compute the approximate length of a vector.
 version: 17
-test: vector
+# TODO test: vector
+test: noverify
 end:
 
 start:
@@ -1341,7 +1368,8 @@ arg: #2#1 rhs
 comment:
  Compute the approximate distance between two points.
 version: 17
-test: vector
+# TODO test: vector
+test: noverify
 end:
 
 start:
@@ -1353,7 +1381,8 @@ arg: #2#1 v
 comment:
  Approximately normalize a vector.
 version: 17
-test: vector
+# TODO test: vector
+test: noverify
 end:
 
 start:
@@ -1367,7 +1396,8 @@ comment:
  valid for inputs -86.f to 86.f
  Max 8192 ulps of error
 version: 18
-test: limited
+# TODO Fix precision issue & verify
+test: noverify
 end:
 
 start:
@@ -1381,7 +1411,8 @@ comment:
  valid for inputs -125.f to 125.f
  Max 8192 ulps of error
 version: 18
-test: limited
+# TODO Fix precision issue & verify
+test: noverify
 end:
 
 start:
@@ -1395,7 +1426,8 @@ comment:
  valid for inputs -37.f to 37.f
  Max 8192 ulps of error
 version: 18
-test: limited
+# TODO Fix precision issue & verify
+test: noverify
 end:
 
 start:
@@ -1403,12 +1435,12 @@ w: 1, 2, 3, 4
 t: f32
 name: native_log
 ret: #2#1
-arg: #2#1 v range(10e-10,10e10)
+arg: #2#1 v
 comment:
  Fast approximate log
 version: 18
-# TODO Is this the precision we want?
-test: limited(0.0002)
+# TODO Fix precision issue & verify
+test: noverify
 end:
 
 start:
@@ -1416,12 +1448,12 @@ w: 1, 2, 3, 4
 t: f32
 name: native_log2
 ret: #2#1
-arg: #2#1 v range(10e-10,10e10)
+arg: #2#1 v
 comment:
  Fast approximate log2
 version: 18
-# TODO Is this the precision we want?
-test: limited(0.0002)
+# TODO Fix precision issue & verify
+test: noverify
 end:
 
 start:
@@ -1429,12 +1461,12 @@ w: 1, 2, 3, 4
 t: f32
 name: native_log10
 ret: #2#1
-arg: #2#1 v range(10e-10,10e10)
+arg: #2#1 v
 comment:
  Fast approximate log10
 version: 18
-# TODO Is this the precision we want?
-test: limited(0.00005)
+# TODO Fix precision issue & verify
+test: noverify
 end:
 
 start:
@@ -1442,15 +1474,12 @@ w: 1, 2, 3, 4
 t: f32
 name: native_powr
 ret: #2#1
-arg: #2#1 v range(0,256)
-arg: #2#1 y range(-15,15)
+arg: #2#1 v
+arg: #2#1 y
 comment:
  Fast approximate v ^ y
- v must be between 0.f and 256.f
- y must be between -15.f and 15.f
 version: 18
-# TODO enable once 0 ^ x is handled better
-# test: limited
+# TODO Fix precision issue & verify
 test: noverify
 end:
 
