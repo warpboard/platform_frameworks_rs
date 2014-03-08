@@ -38,6 +38,7 @@ LOCAL_CFLAGS_arm64 += -DARCH_ARM_HAVE_NEON
 LOCAL_SRC_FILES_arm64 += \
     rsCpuIntrinsics_advsimd_Blend.S \
     rsCpuIntrinsics_advsimd_Blur.S \
+    rsCpuIntrinsics_advsimd_ColorMatrix.S \
     rsCpuIntrinsics_advsimd_YuvToRGB.S
 
 ifeq ($(ARCH_ARM_HAVE_NEON),true)
