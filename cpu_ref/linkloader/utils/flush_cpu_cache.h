@@ -17,31 +17,20 @@
 #ifndef FLUSH_CPU_CACHE_H
 #define FLUSH_CPU_CACHE_H
 
-#if defined(__arm__) || defined(__mips__)
+#if defined(__arm__) || defined(__aarch64__)
 
-// Note: Though we wish to use the gcc builtin function __clear_cache to
-// invalidate the instruction cache; however, the toolchain of Android
-// has not supported it properly.  We are going to use cacheflush system
-// call to invalidate the instruction cache.
-//
-// As a side note, Dalvik VM use the same system call to invalidate the
-// instruction as well.
+#define FLUSH_CPU_CACHE(BEGIN, END) __clear_cache((BEGIN), (END))
 
-#include <unistd.h>
-
-#define FLUSH_CPU_CACHE(BEGIN, END) \
-  cacheflush(((long)(BEGIN)), ((long)(END)), 0)
-
-#if 0 && defined(__mips__)
+#elif 0 && defined(__mips__)
 
 // Note: Following code does not work with Android Toolchain, though they
 // works while using standalone mips-linux-gnu-gcc.
 
 #include <sys/cachectl.h>
+#include <unistd.h>
+
 #define FLUSH_CPU_CACHE(BEGIN, END) \
   _flush_cache(reinterpret_cast<char*>(BEGIN), END-BEGIN+1, BCACHE);
-
-#endif
 
 #else
 
