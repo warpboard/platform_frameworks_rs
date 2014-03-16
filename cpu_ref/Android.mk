@@ -35,6 +35,7 @@ LOCAL_SRC_FILES:= \
 	convolve/convolve.c
 
 LOCAL_CFLAGS_arm64 += -DARCH_ARM_HAVE_NEON -DFAKE_ARM64_BUILD
+LOCAL_ASFLAGS_arm64 += -no-integrated-as
 #LOCAL_SRC_FILES_arm64 += \
 #    rsCpuIntrinsics_advsimd_Blend.S \
 #    rsCpuIntrinsics_advsimd_Blur.S \
