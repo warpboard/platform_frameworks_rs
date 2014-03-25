@@ -1,0 +1,424 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADST_ADST	vp9_enums.h	/^  ADST_ADST = 3,                      \/\/ ADST in both directions$/;"	e	enum:__anon10
+ADST_DCT	vp9_enums.h	/^  ADST_DCT  = 1,                      \/\/ ADST in vertical, DCT in horizontal$/;"	e	enum:__anon10
+ALIGN_POWER_OF_TWO	vp9_common.h	26;"	d
+ALLOW_16X16	vp9_enums.h	/^  ALLOW_16X16         = 2,        \/\/ allow block transform size up to 16x16$/;"	e	enum:__anon9
+ALLOW_32X32	vp9_enums.h	/^  ALLOW_32X32         = 3,        \/\/ allow block transform size up to 32x32$/;"	e	enum:__anon9
+ALLOW_8X8	vp9_enums.h	/^  ALLOW_8X8           = 1,        \/\/ allow block transform size up to 8x8$/;"	e	enum:__anon9
+ALTREF_FRAME	vp9_blockd.h	/^  ALTREF_FRAME = 3,$/;"	e	enum:__anon5
+BLOCK_16X16	vp9_enums.h	/^  BLOCK_16X16,$/;"	e	enum:BLOCK_SIZE
+BLOCK_16X32	vp9_enums.h	/^  BLOCK_16X32,$/;"	e	enum:BLOCK_SIZE
+BLOCK_16X8	vp9_enums.h	/^  BLOCK_16X8,$/;"	e	enum:BLOCK_SIZE
+BLOCK_32X16	vp9_enums.h	/^  BLOCK_32X16,$/;"	e	enum:BLOCK_SIZE
+BLOCK_32X32	vp9_enums.h	/^  BLOCK_32X32,$/;"	e	enum:BLOCK_SIZE
+BLOCK_32X64	vp9_enums.h	/^  BLOCK_32X64,$/;"	e	enum:BLOCK_SIZE
+BLOCK_4X4	vp9_enums.h	/^  BLOCK_4X4,$/;"	e	enum:BLOCK_SIZE
+BLOCK_4X8	vp9_enums.h	/^  BLOCK_4X8,$/;"	e	enum:BLOCK_SIZE
+BLOCK_64X32	vp9_enums.h	/^  BLOCK_64X32,$/;"	e	enum:BLOCK_SIZE
+BLOCK_64X64	vp9_enums.h	/^  BLOCK_64X64,$/;"	e	enum:BLOCK_SIZE
+BLOCK_8X16	vp9_enums.h	/^  BLOCK_8X16,$/;"	e	enum:BLOCK_SIZE
+BLOCK_8X4	vp9_enums.h	/^  BLOCK_8X4,$/;"	e	enum:BLOCK_SIZE
+BLOCK_8X8	vp9_enums.h	/^  BLOCK_8X8,$/;"	e	enum:BLOCK_SIZE
+BLOCK_INVALID	vp9_enums.h	/^  BLOCK_INVALID = BLOCK_SIZES$/;"	e	enum:BLOCK_SIZE
+BLOCK_OFFSET	vp9_blockd.h	98;"	d
+BLOCK_SIZE	vp9_enums.h	/^typedef enum BLOCK_SIZE {$/;"	g
+BLOCK_SIZE	vp9_enums.h	/^} BLOCK_SIZE;$/;"	t	typeref:enum:BLOCK_SIZE
+BLOCK_SIZES	vp9_enums.h	/^  BLOCK_SIZES,$/;"	e	enum:BLOCK_SIZE
+BT_601	vp9_enums.h	/^  BT_601     = 1,  \/\/ YUV$/;"	e	enum:__anon11
+BT_709	vp9_enums.h	/^  BT_709     = 2,  \/\/ YUV$/;"	e	enum:__anon11
+COLOR_SPACE	vp9_enums.h	/^} COLOR_SPACE;$/;"	t	typeref:enum:__anon11
+D117_PRED	vp9_blockd.h	/^  D117_PRED,       \/\/ Directional 117 deg = 180 - 63$/;"	e	enum:__anon3
+D135_PRED	vp9_blockd.h	/^  D135_PRED,       \/\/ Directional 135 deg = 180 - 45$/;"	e	enum:__anon3
+D153_PRED	vp9_blockd.h	/^  D153_PRED,       \/\/ Directional 153 deg = 180 - 27$/;"	e	enum:__anon3
+D207_PRED	vp9_blockd.h	/^  D207_PRED,       \/\/ Directional 207 deg = 180 + 27$/;"	e	enum:__anon3
+D45_PRED	vp9_blockd.h	/^  D45_PRED,        \/\/ Directional 45  deg = round(arctan(1\/1) * 180\/pi)$/;"	e	enum:__anon3
+D63_PRED	vp9_blockd.h	/^  D63_PRED,        \/\/ Directional 63  deg = round(arctan(2\/1) * 180\/pi)$/;"	e	enum:__anon3
+DCT_ADST	vp9_enums.h	/^  DCT_ADST  = 2,                      \/\/ DCT  in vertical, ADST in horizontal$/;"	e	enum:__anon10
+DCT_CONST_BITS	vp9_idct.h	9;"	d
+DCT_CONST_ROUNDING	vp9_idct.h	10;"	d
+DCT_DCT	vp9_enums.h	/^  DCT_DCT   = 0,                      \/\/ DCT  in both horizontal and vertical$/;"	e	enum:__anon10
+DC_PRED	vp9_blockd.h	/^  DC_PRED,         \/\/ Average of above and left pixels$/;"	e	enum:__anon3
+DECLARE_ALIGNED_ARRAY	vp9_common.h	15;"	d
+FRAME_TYPE	vp9_blockd.h	/^} FRAME_TYPE;$/;"	t	typeref:enum:__anon2
+FRAME_TYPES	vp9_blockd.h	/^  FRAME_TYPES,$/;"	e	enum:__anon2
+GOLDEN_FRAME	vp9_blockd.h	/^  GOLDEN_FRAME = 2,$/;"	e	enum:__anon5
+H_PRED	vp9_blockd.h	/^  H_PRED,          \/\/ Horizontal$/;"	e	enum:__anon3
+IHT_16	vp9_idct.c	/^static const transform_2d IHT_16[] = {$/;"	v	file:
+IHT_8	vp9_idct.c	/^static const transform_2d IHT_8[] = {$/;"	v	file:
+INLINE	vp9_enums.h	16;"	d
+INTER_FRAME	vp9_blockd.h	/^  INTER_FRAME = 1,$/;"	e	enum:__anon2
+INTRA_FRAME	vp9_blockd.h	/^  INTRA_FRAME = 0,$/;"	e	enum:__anon5
+INTRA_MODES	vp9_blockd.h	39;"	d
+INTRA_PARAM	vp9_blockd.h	/^ }INTRA_PARAM;$/;"	t	typeref:struct:__anon4
+KEY_FRAME	vp9_blockd.h	/^  KEY_FRAME = 0,$/;"	e	enum:__anon2
+LAST_FRAME	vp9_blockd.h	/^  LAST_FRAME = 1,$/;"	e	enum:__anon5
+MAX	vp9_common.h	21;"	d
+MAX_MB_PLANE	vp9_blockd.h	/^enum { MAX_MB_PLANE = 3 };$/;"	e	enum:__anon7
+MAX_REF_FRAMES	vp9_blockd.h	/^  MAX_REF_FRAMES = 4$/;"	e	enum:__anon5
+MB_MODE_COUNT	vp9_blockd.h	/^  MB_MODE_COUNT$/;"	e	enum:__anon3
+MB_MODE_INFO_RS	vp9_blockd.h	/^} MB_MODE_INFO_RS;$/;"	t	typeref:struct:__anon6
+MB_PREDICTION_MODE	vp9_blockd.h	/^} MB_PREDICTION_MODE;$/;"	t	typeref:enum:__anon3
+MIN	vp9_common.h	20;"	d
+MI_BLOCK_SIZE	vp9_enums.h	22;"	d
+MI_BLOCK_SIZE_LOG2	vp9_enums.h	19;"	d
+MI_MASK	vp9_enums.h	24;"	d
+MI_SIZE	vp9_enums.h	21;"	d
+MI_SIZE_LOG2	vp9_enums.h	18;"	d
+MV_REFERENCE_FRAME	vp9_blockd.h	/^} MV_REFERENCE_FRAME;$/;"	t	typeref:enum:__anon5
+NEARESTMV	vp9_blockd.h	/^  NEARESTMV,$/;"	e	enum:__anon3
+NEARMV	vp9_blockd.h	/^  NEARMV,$/;"	e	enum:__anon3
+NEWMV	vp9_blockd.h	/^  NEWMV,$/;"	e	enum:__anon3
+NONE	vp9_blockd.h	/^  NONE = -1,$/;"	e	enum:__anon5
+ONLY_4X4	vp9_enums.h	/^  ONLY_4X4            = 0,        \/\/ only 4x4 transform used$/;"	e	enum:__anon9
+PLANE_TYPE	vp9_blockd.h	/^} PLANE_TYPE;$/;"	t	typeref:enum:__anon1
+PLANE_TYPES	vp9_blockd.h	/^  PLANE_TYPES$/;"	e	enum:__anon1
+PLANE_TYPE_UV	vp9_blockd.h	/^  PLANE_TYPE_UV = 1,$/;"	e	enum:__anon1
+PLANE_TYPE_Y	vp9_blockd.h	/^  PLANE_TYPE_Y  = 0,$/;"	e	enum:__anon1
+RESERVED_1	vp9_enums.h	/^  RESERVED_1 = 5,$/;"	e	enum:__anon11
+RESERVED_2	vp9_enums.h	/^  RESERVED_2 = 6,$/;"	e	enum:__anon11
+ROUND_POWER_OF_TWO	vp9_common.h	23;"	d
+RTCD_EXTERN	vp9_rtcd.h	5;"	d
+RTCD_EXTERN	vp9_rtcd.h	7;"	d
+SMPTE_170	vp9_enums.h	/^  SMPTE_170  = 3,  \/\/ YUV$/;"	e	enum:__anon11
+SMPTE_240	vp9_enums.h	/^  SMPTE_240  = 4,  \/\/ YUV$/;"	e	enum:__anon11
+SRGB	vp9_enums.h	/^  SRGB       = 7   \/\/ RGB$/;"	e	enum:__anon11
+TM_PRED	vp9_blockd.h	/^  TM_PRED,         \/\/ True-motion$/;"	e	enum:__anon3
+TX_16X16	vp9_enums.h	/^  TX_16X16 = 2,                    \/\/ 16x16 transform$/;"	e	enum:__anon8
+TX_32X32	vp9_enums.h	/^  TX_32X32 = 3,                    \/\/ 32x32 transform$/;"	e	enum:__anon8
+TX_4X4	vp9_enums.h	/^  TX_4X4 = 0,                      \/\/ 4x4 transform$/;"	e	enum:__anon8
+TX_8X8	vp9_enums.h	/^  TX_8X8 = 1,                      \/\/ 8x8 transform$/;"	e	enum:__anon8
+TX_MODE	vp9_enums.h	/^} TX_MODE;$/;"	t	typeref:enum:__anon9
+TX_MODES	vp9_enums.h	/^  TX_MODES            = 5,$/;"	e	enum:__anon9
+TX_MODE_SELECT	vp9_enums.h	/^  TX_MODE_SELECT      = 4,        \/\/ transform specified for each block$/;"	e	enum:__anon9
+TX_SIZE	vp9_enums.h	/^} TX_SIZE;$/;"	t	typeref:enum:__anon8
+TX_SIZES	vp9_enums.h	/^  TX_SIZES$/;"	e	enum:__anon8
+TX_TYPE	vp9_enums.h	/^} TX_TYPE;$/;"	t	typeref:enum:__anon10
+TX_TYPES	vp9_enums.h	/^  TX_TYPES = 4$/;"	e	enum:__anon10
+UNIT_QUANT_FACTOR	vp9_idct.h	13;"	d
+UNIT_QUANT_SHIFT	vp9_idct.h	12;"	d
+UNKNOWN	vp9_enums.h	/^  UNKNOWN    = 0,$/;"	e	enum:__anon11
+VP9_BLOCK_INTRA	vp9_intra.h	2;"	d
+VP9_COMMON_VP9_BLOCKD_H_	vp9_blockd.h	2;"	d
+VP9_COMMON_VP9_COMMON_DATA_H_	vp9_common_data.h	2;"	d
+VP9_COMMON_VP9_COMMON_H_	vp9_common.h	12;"	d
+VP9_COMMON_VP9_ENUMS_H_	vp9_enums.h	12;"	d
+VP9_COMMON_VP9_IDCT_H_	vp9_idct.h	2;"	d
+VP9_COMMON_VP9_RECONINTRA_H_	vp9_reconintra.h	12;"	d
+VP9_FRAME_MARKER	vp9_common.h	59;"	d
+VP9_RTCD_H_	vp9_rtcd.h	2;"	d
+VP9_SYNC_CODE_0	vp9_common.h	55;"	d
+VP9_SYNC_CODE_1	vp9_common.h	56;"	d
+VP9_SYNC_CODE_2	vp9_common.h	57;"	d
+V_PRED	vp9_blockd.h	/^  V_PRED,          \/\/ Vertical$/;"	e	enum:__anon3
+ZEROMV	vp9_blockd.h	/^  ZEROMV,$/;"	e	enum:__anon3
+_vp9_h_predictor_16x16_neon	vp9_reconintra_neon.s	/^_vp9_h_predictor_16x16_neon:$/;"	l
+_vp9_h_predictor_32x32_neon	vp9_reconintra_neon.s	/^_vp9_h_predictor_32x32_neon:$/;"	l
+_vp9_h_predictor_4x4_neon	vp9_reconintra_neon.s	/^_vp9_h_predictor_4x4_neon:$/;"	l
+_vp9_h_predictor_8x8_neon	vp9_reconintra_neon.s	/^_vp9_h_predictor_8x8_neon:$/;"	l
+_vp9_idct16x16_10_add_neon_pass1	vp9_short_idct16x16_add_neon.s	/^_vp9_idct16x16_10_add_neon_pass1:$/;"	l
+_vp9_idct16x16_10_add_neon_pass2	vp9_short_idct16x16_add_neon.s	/^_vp9_idct16x16_10_add_neon_pass2:$/;"	l
+_vp9_idct16x16_1_add_neon	vp9_short_idct16x16_1_add_neon.s	/^_vp9_idct16x16_1_add_neon:$/;"	l
+_vp9_idct16x16_256_add_neon_pass1	vp9_short_idct16x16_add_neon.s	/^_vp9_idct16x16_256_add_neon_pass1:$/;"	l
+_vp9_idct16x16_256_add_neon_pass2	vp9_short_idct16x16_add_neon.s	/^_vp9_idct16x16_256_add_neon_pass2:$/;"	l
+_vp9_idct32x32_1024_add_neon	vp9_short_idct32x32_add_neon.s	/^_vp9_idct32x32_1024_add_neon:$/;"	l
+_vp9_idct32x32_1_add_neon	vp9_short_idct32x32_1_add_neon.s	/^_vp9_idct32x32_1_add_neon:$/;"	l
+_vp9_idct4x4_16_add_neon	vp9_short_idct4x4_add_neon.s	/^_vp9_idct4x4_16_add_neon:$/;"	l
+_vp9_idct4x4_1_add_neon	vp9_short_idct4x4_1_add_neon.s	/^_vp9_idct4x4_1_add_neon:$/;"	l
+_vp9_idct8x8_10_add_neon	vp9_short_idct8x8_add_neon.s	/^_vp9_idct8x8_10_add_neon:$/;"	l
+_vp9_idct8x8_1_add_neon	vp9_short_idct8x8_1_add_neon.s	/^_vp9_idct8x8_1_add_neon:$/;"	l
+_vp9_idct8x8_64_add_neon	vp9_short_idct8x8_add_neon.s	/^_vp9_idct8x8_64_add_neon:$/;"	l
+_vp9_iht4x4_16_add_neon	vp9_short_iht4x4_add_neon.s	/^_vp9_iht4x4_16_add_neon:$/;"	l
+_vp9_iht8x8_64_add_neon	vp9_short_iht8x8_add_neon.s	/^_vp9_iht8x8_64_add_neon:$/;"	l
+_vp9_pop_neon	vp9_save_reg_neon.s	/^_vp9_pop_neon:$/;"	l
+_vp9_push_neon	vp9_save_reg_neon.s	/^_vp9_push_neon:$/;"	l
+_vp9_tm_predictor_4x4_neon	vp9_reconintra_neon.s	/^_vp9_tm_predictor_4x4_neon:$/;"	l
+_vp9_v_predictor_16x16_neon	vp9_reconintra_neon.s	/^_vp9_v_predictor_16x16_neon:$/;"	l
+_vp9_v_predictor_32x32_neon	vp9_reconintra_neon.s	/^_vp9_v_predictor_32x32_neon:$/;"	l
+_vp9_v_predictor_4x4_neon	vp9_reconintra_neon.s	/^_vp9_v_predictor_4x4_neon:$/;"	l
+_vp9_v_predictor_8x8_neon	vp9_reconintra_neon.s	/^_vp9_v_predictor_8x8_neon:$/;"	l
+as_mode	vp9_blockd.h	/^  int as_mode[4];$/;"	m	struct:__anon4
+b_height_log2_lookup	vp9_common_data.c	/^const int b_height_log2_lookup[BLOCK_SIZES] =$/;"	v
+b_width_log2	vp9_blockd.c	/^int b_width_log2(BLOCK_SIZE sb_type) {$/;"	f
+b_width_log2_lookup	vp9_common_data.c	/^const int b_width_log2_lookup[BLOCK_SIZES] =$/;"	v
+bsize	vp9_blockd.h	/^  int bsize;$/;"	m	struct:__anon4
+build_intra_predictors_rs	vp9_reconintra.c	/^static void build_intra_predictors_rs(const INTRA_PARAM*param, const uint8_t *ref,$/;"	f	file:
+clip_pixel	vp9_common.h	/^static inline uint8_t clip_pixel(int val) {$/;"	f
+cols	vp9_idct.h	/^  transform_1d cols, rows;  \/\/ vertical and horizontal$/;"	m	struct:__anon12
+cospi_10_64	vp9_idct.h	/^static const int cospi_10_64 = 14449;$/;"	v
+cospi_11_64	vp9_idct.h	/^static const int cospi_11_64 = 14053;$/;"	v
+cospi_12_64	vp9_idct.h	/^static const int cospi_12_64 = 13623;$/;"	v
+cospi_13_64	vp9_idct.h	/^static const int cospi_13_64 = 13160;$/;"	v
+cospi_14_64	vp9_idct.h	/^static const int cospi_14_64 = 12665;$/;"	v
+cospi_15_64	vp9_idct.h	/^static const int cospi_15_64 = 12140;$/;"	v
+cospi_16_64	vp9_idct.h	/^static const int cospi_16_64 = 11585;$/;"	v
+cospi_17_64	vp9_idct.h	/^static const int cospi_17_64 = 11003;$/;"	v
+cospi_18_64	vp9_idct.h	/^static const int cospi_18_64 = 10394;$/;"	v
+cospi_19_64	vp9_idct.h	/^static const int cospi_19_64 = 9760;$/;"	v
+cospi_1_64	vp9_idct.h	/^static const int cospi_1_64  = 16364;$/;"	v
+cospi_20_64	vp9_idct.h	/^static const int cospi_20_64 = 9102;$/;"	v
+cospi_21_64	vp9_idct.h	/^static const int cospi_21_64 = 8423;$/;"	v
+cospi_22_64	vp9_idct.h	/^static const int cospi_22_64 = 7723;$/;"	v
+cospi_23_64	vp9_idct.h	/^static const int cospi_23_64 = 7005;$/;"	v
+cospi_24_64	vp9_idct.h	/^static const int cospi_24_64 = 6270;$/;"	v
+cospi_25_64	vp9_idct.h	/^static const int cospi_25_64 = 5520;$/;"	v
+cospi_26_64	vp9_idct.h	/^static const int cospi_26_64 = 4756;$/;"	v
+cospi_27_64	vp9_idct.h	/^static const int cospi_27_64 = 3981;$/;"	v
+cospi_28_64	vp9_idct.h	/^static const int cospi_28_64 = 3196;$/;"	v
+cospi_29_64	vp9_idct.h	/^static const int cospi_29_64 = 2404;$/;"	v
+cospi_2_64	vp9_idct.h	/^static const int cospi_2_64  = 16305;$/;"	v
+cospi_30_64	vp9_idct.h	/^static const int cospi_30_64 = 1606;$/;"	v
+cospi_31_64	vp9_idct.h	/^static const int cospi_31_64 = 804;$/;"	v
+cospi_3_64	vp9_idct.h	/^static const int cospi_3_64  = 16207;$/;"	v
+cospi_4_64	vp9_idct.h	/^static const int cospi_4_64  = 16069;$/;"	v
+cospi_5_64	vp9_idct.h	/^static const int cospi_5_64  = 15893;$/;"	v
+cospi_6_64	vp9_idct.h	/^static const int cospi_6_64  = 15679;$/;"	v
+cospi_7_64	vp9_idct.h	/^static const int cospi_7_64  = 15426;$/;"	v
+cospi_8_64	vp9_idct.h	/^static const int cospi_8_64  = 15137;$/;"	v
+cospi_9_64	vp9_idct.h	/^static const int cospi_9_64  = 14811;$/;"	v
+d117_predictor	vp9_reconintra.c	/^static INLINE void d117_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+d135_predictor	vp9_reconintra.c	/^static INLINE void d135_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+d153_predictor	vp9_reconintra.c	/^static INLINE void d153_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+d207_predictor	vp9_reconintra.c	/^static INLINE void d207_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+d45_predictor	vp9_reconintra.c	/^static INLINE void d45_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+d63_predictor	vp9_reconintra.c	/^static INLINE void d63_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+dc_128_predictor	vp9_reconintra.c	/^static INLINE void dc_128_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+dc_left_predictor	vp9_reconintra.c	/^static INLINE void dc_left_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+dc_pred	vp9_reconintra.c	/^static intra_pred_fn dc_pred[2][2][4];$/;"	v	file:
+dc_predictor	vp9_reconintra.c	/^static INLINE void dc_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+dc_top_predictor	vp9_reconintra.c	/^static INLINE void dc_top_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+dct_const_round_shift	vp9_idct.h	/^static INLINE int dct_const_round_shift(int input) {$/;"	f
+decode_block_intra_recon_rs	vp9_intra.c	/^void decode_block_intra_recon_rs(int plane, int block,$/;"	f
+diff_negative_32_32	vp9_short_idct32x32_1_add_neon.s	/^diff_negative_32_32:$/;"	l
+diff_negative_32_32_loop	vp9_short_idct32x32_1_add_neon.s	/^diff_negative_32_32_loop:$/;"	l
+diff_positive_32_32	vp9_short_idct32x32_1_add_neon.s	/^diff_positive_32_32:$/;"	l
+diff_positive_32_32_loop	vp9_short_idct32x32_1_add_neon.s	/^diff_positive_32_32_loop:$/;"	l
+dqcoeff	vp9_blockd.h	/^  int16_t *dqcoeff;$/;"	m	struct:__anon4
+dst	vp9_blockd.h	/^  uint8_t *dst;$/;"	m	struct:__anon4
+end_idct10_16x16_pass2	vp9_short_idct16x16_add_neon.s	/^end_idct10_16x16_pass2:$/;"	l
+end_idct16x16_pass2	vp9_short_idct16x16_add_neon.s	/^end_idct16x16_pass2:$/;"	l
+end_vp9_iht4x4_16_add_neon	vp9_short_iht4x4_add_neon.s	/^end_vp9_iht4x4_16_add_neon:$/;"	l
+end_vp9_iht8x8_64_add_neon	vp9_short_iht8x8_add_neon.s	/^end_vp9_iht8x8_64_add_neon:$/;"	l
+eobs	vp9_blockd.h	/^  uint16_t *eobs;$/;"	m	struct:__anon4
+extend_for_intra_rs	vp9_blockd.c	/^void extend_for_intra_rs(INTRA_PARAM *param, BLOCK_SIZE plane_bsize,$/;"	f
+fclamp	vp9_common.h	/^static inline double fclamp(double value, double low, double high) {$/;"	f
+get_plane_block_size_rs	vp9_blockd.c	/^BLOCK_SIZE get_plane_block_size_rs(BLOCK_SIZE bsize,$/;"	f
+get_tx_type_16x16_rs	vp9_blockd.c	/^TX_TYPE get_tx_type_16x16_rs(PLANE_TYPE plane_type,$/;"	f
+get_tx_type_4x4_rs	vp9_blockd.c	/^TX_TYPE get_tx_type_4x4_rs(PLANE_TYPE plane_type,$/;"	f
+get_tx_type_8x8_rs	vp9_blockd.c	/^TX_TYPE get_tx_type_8x8_rs(PLANE_TYPE plane_type,$/;"	f
+get_uv_tx_size_impl	vp9_blockd.c	/^TX_SIZE get_uv_tx_size_impl(TX_SIZE y_tx_size, BLOCK_SIZE bsize) {$/;"	f
+get_uv_tx_size_rs	vp9_blockd.c	/^TX_SIZE get_uv_tx_size_rs(int tx_size, int sb_type) {$/;"	f
+h_predictor	vp9_reconintra.c	/^static INLINE void h_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+iadst16_1d	vp9_idct.c	/^static void iadst16_1d(const int16_t *input, int16_t *output) {$/;"	f	file:
+iadst4_1d	vp9_idct.c	/^static void iadst4_1d(const int16_t *input, int16_t *output) {$/;"	f	file:
+iadst8_1d	vp9_idct.c	/^static void iadst8_1d(const int16_t *input, int16_t *output) {$/;"	f	file:
+iadst_iadst	vp9_short_iht4x4_add_neon.s	/^iadst_iadst:$/;"	l
+iadst_iadst	vp9_short_iht8x8_add_neon.s	/^iadst_iadst:$/;"	l
+iadst_idct	vp9_short_iht4x4_add_neon.s	/^iadst_idct:$/;"	l
+iadst_idct	vp9_short_iht8x8_add_neon.s	/^iadst_idct:$/;"	l
+idct16_1d	vp9_idct.c	/^static void idct16_1d(const int16_t *input, int16_t *output) {$/;"	f	file:
+idct32_1d	vp9_idct.c	/^static void idct32_1d(const int16_t *input, int16_t *output) {$/;"	f	file:
+idct32_bands_end_1st_pass	vp9_short_idct32x32_add_neon.s	/^idct32_bands_end_1st_pass:$/;"	l
+idct32_bands_end_2nd_pass	vp9_short_idct32x32_add_neon.s	/^idct32_bands_end_2nd_pass:$/;"	l
+idct32_bands_loop	vp9_short_idct32x32_add_neon.s	/^idct32_bands_loop:$/;"	l
+idct32_pass_loop	vp9_short_idct32x32_add_neon.s	/^idct32_pass_loop:$/;"	l
+idct32_transpose_pair_loop	vp9_short_idct32x32_add_neon.s	/^idct32_transpose_pair_loop:$/;"	l
+idct4_1d	vp9_idct.c	/^static void idct4_1d(const int16_t *input, int16_t *output) {$/;"	f	file:
+idct8_1d	vp9_idct.c	/^static void idct8_1d(const int16_t *input, int16_t *output) {$/;"	f	file:
+idct_iadst	vp9_short_iht4x4_add_neon.s	/^idct_iadst:$/;"	l
+idct_iadst	vp9_short_iht8x8_add_neon.s	/^idct_iadst:$/;"	l
+init_intra_pred_fn_ptrs	vp9_reconintra.c	/^static void init_intra_pred_fn_ptrs(void) {$/;"	f	file:
+intra_pred_allsizes	vp9_reconintra.c	271;"	d	file:
+intra_pred_allsizes	vp9_reconintra.c	280;"	d	file:
+intra_pred_allsizes	vp9_reconintra.c	301;"	d	file:
+intra_pred_allsizes	vp9_reconintra.c	34;"	d	file:
+intra_pred_fn	vp9_reconintra.c	/^typedef void (*intra_pred_fn)(uint8_t *dst, ptrdiff_t stride,$/;"	t	file:
+intra_pred_sized	vp9_reconintra.c	26;"	d	file:
+inverse_transform_block_rs	vp9_intra.c	/^static void inverse_transform_block_rs(INTRA_PARAM *param, int plane, int block,$/;"	f	file:
+is_inter_block_rs	vp9_blockd.c	/^int is_inter_block_rs(const int ref_frame) {$/;"	f
+left_available	vp9_blockd.h	/^  int left_available;$/;"	m	struct:__anon4
+loop_h	vp9_reconintra_neon.s	/^loop_h:$/;"	l
+loop_v	vp9_reconintra_neon.s	/^loop_v:$/;"	l
+lossless	vp9_blockd.h	/^  int lossless;$/;"	m	struct:__anon4
+max_txsize_lookup	vp9_common_data.c	/^const TX_SIZE max_txsize_lookup[BLOCK_SIZES] = {$/;"	v
+max_uv_txsize_lookup	vp9_common_data.c	/^const TX_SIZE max_uv_txsize_lookup[BLOCK_SIZES] = {$/;"	v
+mb_to_bottom_edge	vp9_blockd.h	/^  int mb_to_bottom_edge;$/;"	m	struct:__anon4
+mb_to_left_edge	vp9_blockd.h	/^  int mb_to_left_edge;$/;"	m	struct:__anon4
+mb_to_right_edge	vp9_blockd.h	/^  int mb_to_right_edge;$/;"	m	struct:__anon4
+mb_to_top_edge	vp9_blockd.h	/^  int mb_to_top_edge;$/;"	m	struct:__anon4
+mi_height_log2_lookup	vp9_common_data.c	/^const int mi_height_log2_lookup[BLOCK_SIZES] =$/;"	v
+mi_width_log2_lookup	vp9_common_data.c	/^const int mi_width_log2_lookup[BLOCK_SIZES] =$/;"	v
+mode	vp9_blockd.h	/^  MB_PREDICTION_MODE mode, uv_mode;$/;"	m	struct:__anon6
+mode	vp9_blockd.h	/^  int mode;$/;"	m	struct:__anon4
+mode2txfm_map	vp9_reconintra.c	/^const TX_TYPE mode2txfm_map[MB_MODE_COUNT] = {$/;"	v
+num_4x4_blocks_high_lookup	vp9_common_data.c	/^const int num_4x4_blocks_high_lookup[BLOCK_SIZES] =$/;"	v
+num_4x4_blocks_wide_lookup	vp9_common_data.c	/^const int num_4x4_blocks_wide_lookup[BLOCK_SIZES] =$/;"	v
+num_8x8_blocks_high_lookup	vp9_common_data.c	/^const int num_8x8_blocks_high_lookup[BLOCK_SIZES] =$/;"	v
+num_8x8_blocks_wide_lookup	vp9_common_data.c	/^const int num_8x8_blocks_wide_lookup[BLOCK_SIZES] =$/;"	v
+num_pels_log2_lookup	vp9_common_data.c	/^const int num_pels_log2_lookup[BLOCK_SIZES] =$/;"	v
+once	vp9_reconintra.c	/^static void once(void (*func)(void)) {$/;"	f	file:
+pair_set_epi16	vp9_idct.h	15;"	d
+pair_set_epi32	vp9_idct.h	18;"	d
+plane_type	vp9_blockd.h	/^  int plane_type;$/;"	m	struct:__anon4
+pred	vp9_reconintra.c	/^static intra_pred_fn pred[INTRA_MODES][4];$/;"	v	file:
+ref_frame	vp9_blockd.h	/^  MV_REFERENCE_FRAME ref_frame[2];$/;"	m	struct:__anon6
+ref_frame	vp9_blockd.h	/^  int ref_frame[2];$/;"	m	struct:__anon4
+rows	vp9_idct.h	/^  transform_1d cols, rows;  \/\/ vertical and horizontal$/;"	m	struct:__anon12
+sb_type	vp9_blockd.h	/^  BLOCK_SIZE sb_type;$/;"	m	struct:__anon6
+sb_type	vp9_blockd.h	/^  int sb_type;$/;"	m	struct:__anon4
+sinpi_1_9	vp9_idct.h	/^static const int sinpi_1_9 = 5283;$/;"	v
+sinpi_2_9	vp9_idct.h	/^static const int sinpi_2_9 = 9929;$/;"	v
+sinpi_3_9	vp9_idct.h	/^static const int sinpi_3_9 = 13377;$/;"	v
+sinpi_4_9	vp9_idct.h	/^static const int sinpi_4_9 = 15212;$/;"	v
+size_group_lookup	vp9_common_data.c	/^const int size_group_lookup[BLOCK_SIZES] =$/;"	v
+skip_adding_dest	vp9_short_idct16x16_add_neon.s	/^skip_adding_dest:$/;"	l
+skip_coeff	vp9_blockd.h	/^  unsigned char skip_coeff;$/;"	m	struct:__anon4
+skip_coeff	vp9_blockd.h	/^  unsigned char skip_coeff;$/;"	m	struct:__anon6
+ss_size_lookup	vp9_common_data.c	/^const BLOCK_SIZE ss_size_lookup[BLOCK_SIZES][2][2] = {$/;"	v
+stride	vp9_blockd.h	/^  int stride;$/;"	m	struct:__anon4
+subsampling_x	vp9_blockd.h	/^  int subsampling_x;$/;"	m	struct:__anon4
+subsampling_y	vp9_blockd.h	/^  int subsampling_y;$/;"	m	struct:__anon4
+tm_predictor	vp9_reconintra.c	/^static INLINE void tm_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+token_cache	vp9_blockd.h	/^  uint8_t *token_cache;$/;"	m	struct:__anon4
+transform_1d	vp9_idct.h	/^typedef void (*transform_1d)(const int16_t*, int16_t*);$/;"	t
+transform_2d	vp9_idct.h	/^} transform_2d;$/;"	t	typeref:struct:__anon12
+tx_mode_to_biggest_tx_size	vp9_common_data.c	/^const TX_SIZE tx_mode_to_biggest_tx_size[TX_MODES] = {$/;"	v
+tx_size	vp9_blockd.h	/^  TX_SIZE tx_size;$/;"	m	struct:__anon6
+tx_size	vp9_blockd.h	/^  int tx_size;$/;"	m	struct:__anon4
+txfrm_block_to_raster_xy	vp9_blockd.c	/^void txfrm_block_to_raster_xy(BLOCK_SIZE plane_bsize,$/;"	f
+up_available	vp9_blockd.h	/^  int up_available;$/;"	m	struct:__anon4
+uv_height	vp9_blockd.h	/^  int uv_height;$/;"	m	struct:__anon4
+uv_mode	vp9_blockd.h	/^  MB_PREDICTION_MODE mode, uv_mode;$/;"	m	struct:__anon6
+uv_mode	vp9_blockd.h	/^  int uv_mode;$/;"	m	struct:__anon4
+uv_width	vp9_blockd.h	/^  int uv_width;$/;"	m	struct:__anon4
+v_predictor	vp9_reconintra.c	/^static INLINE void v_predictor(uint8_t *dst, ptrdiff_t stride, int bs,$/;"	f	file:
+vp9_copy	vp9_common.h	30;"	d
+vp9_copy_array	vp9_common.h	35;"	d
+vp9_d117_predictor_16x16	vp9_rtcd.h	113;"	d
+vp9_d117_predictor_32x32	vp9_rtcd.h	154;"	d
+vp9_d117_predictor_4x4	vp9_rtcd.h	30;"	d
+vp9_d117_predictor_8x8	vp9_rtcd.h	72;"	d
+vp9_d135_predictor_16x16	vp9_rtcd.h	116;"	d
+vp9_d135_predictor_32x32	vp9_rtcd.h	157;"	d
+vp9_d135_predictor_4x4	vp9_rtcd.h	33;"	d
+vp9_d135_predictor_8x8	vp9_rtcd.h	75;"	d
+vp9_d153_predictor_16x16	vp9_rtcd.h	119;"	d
+vp9_d153_predictor_32x32	vp9_rtcd.h	160;"	d
+vp9_d153_predictor_4x4	vp9_rtcd.h	36;"	d
+vp9_d153_predictor_8x8	vp9_rtcd.h	78;"	d
+vp9_d207_predictor_16x16	vp9_rtcd.h	100;"	d
+vp9_d207_predictor_32x32	vp9_rtcd.h	141;"	d
+vp9_d207_predictor_4x4	vp9_rtcd.h	17;"	d
+vp9_d207_predictor_8x8	vp9_rtcd.h	59;"	d
+vp9_d45_predictor_16x16	vp9_rtcd.h	103;"	d
+vp9_d45_predictor_32x32	vp9_rtcd.h	144;"	d
+vp9_d45_predictor_4x4	vp9_rtcd.h	20;"	d
+vp9_d45_predictor_8x8	vp9_rtcd.h	62;"	d
+vp9_d63_predictor_16x16	vp9_rtcd.h	106;"	d
+vp9_d63_predictor_32x32	vp9_rtcd.h	147;"	d
+vp9_d63_predictor_4x4	vp9_rtcd.h	23;"	d
+vp9_d63_predictor_8x8	vp9_rtcd.h	65;"	d
+vp9_dc_128_predictor_16x16	vp9_rtcd.h	138;"	d
+vp9_dc_128_predictor_32x32	vp9_rtcd.h	179;"	d
+vp9_dc_128_predictor_4x4	vp9_rtcd.h	56;"	d
+vp9_dc_128_predictor_8x8	vp9_rtcd.h	97;"	d
+vp9_dc_left_predictor_16x16	vp9_rtcd.h	135;"	d
+vp9_dc_left_predictor_32x32	vp9_rtcd.h	176;"	d
+vp9_dc_left_predictor_4x4	vp9_rtcd.h	53;"	d
+vp9_dc_left_predictor_8x8	vp9_rtcd.h	94;"	d
+vp9_dc_predictor_16x16	vp9_rtcd.h	129;"	d
+vp9_dc_predictor_32x32	vp9_rtcd.h	170;"	d
+vp9_dc_predictor_4x4	vp9_rtcd.h	47;"	d
+vp9_dc_predictor_8x8	vp9_rtcd.h	88;"	d
+vp9_dc_top_predictor_16x16	vp9_rtcd.h	132;"	d
+vp9_dc_top_predictor_32x32	vp9_rtcd.h	173;"	d
+vp9_dc_top_predictor_4x4	vp9_rtcd.h	50;"	d
+vp9_dc_top_predictor_8x8	vp9_rtcd.h	91;"	d
+vp9_h_predictor_16x16	vp9_rtcd.h	110;"	d
+vp9_h_predictor_16x16_neon	vp9_reconintra_neon.s	/^	vp9_h_predictor_16x16_neon: @ PROC$/;"	l
+vp9_h_predictor_32x32	vp9_rtcd.h	151;"	d
+vp9_h_predictor_32x32_neon	vp9_reconintra_neon.s	/^	vp9_h_predictor_32x32_neon: @ PROC$/;"	l
+vp9_h_predictor_4x4	vp9_rtcd.h	27;"	d
+vp9_h_predictor_4x4_neon	vp9_reconintra_neon.s	/^	vp9_h_predictor_4x4_neon: @ PROC$/;"	l
+vp9_h_predictor_8x8	vp9_rtcd.h	69;"	d
+vp9_h_predictor_8x8_neon	vp9_reconintra_neon.s	/^	vp9_h_predictor_8x8_neon: @ PROC$/;"	l
+vp9_idct16x16_10_add	vp9_rtcd.h	211;"	d
+vp9_idct16x16_10_add_c	vp9_idct.c	/^void vp9_idct16x16_10_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_idct16x16_10_add_neon	vp9_idct16x16_neon.c	/^void vp9_idct16x16_10_add_neon(const int16_t *input,$/;"	f
+vp9_idct16x16_10_add_neon_pass1	vp9_short_idct16x16_add_neon.s	/^	vp9_idct16x16_10_add_neon_pass1: @ PROC$/;"	l
+vp9_idct16x16_10_add_neon_pass2	vp9_short_idct16x16_add_neon.s	/^	vp9_idct16x16_10_add_neon_pass2: @ PROC$/;"	l
+vp9_idct16x16_1_add	vp9_rtcd.h	203;"	d
+vp9_idct16x16_1_add_c	vp9_idct.c	/^void vp9_idct16x16_1_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_idct16x16_1_add_neon	vp9_short_idct16x16_1_add_neon.s	/^	vp9_idct16x16_1_add_neon: @ PROC$/;"	l
+vp9_idct16x16_256_add	vp9_rtcd.h	207;"	d
+vp9_idct16x16_256_add_c	vp9_idct.c	/^void vp9_idct16x16_256_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_idct16x16_256_add_neon	vp9_idct16x16_neon.c	/^void vp9_idct16x16_256_add_neon(const int16_t *input,$/;"	f
+vp9_idct16x16_256_add_neon_pass1	vp9_short_idct16x16_add_neon.s	/^	vp9_idct16x16_256_add_neon_pass1: @ PROC$/;"	l
+vp9_idct16x16_256_add_neon_pass2	vp9_short_idct16x16_add_neon.s	/^	vp9_idct16x16_256_add_neon_pass2: @ PROC$/;"	l
+vp9_idct16x16_add	vp9_idct.c	/^void vp9_idct16x16_add(const int16_t *input, uint8_t *dest, int stride,$/;"	f
+vp9_idct32x32_1024_add	vp9_rtcd.h	215;"	d
+vp9_idct32x32_1024_add_c	vp9_idct.c	/^void vp9_idct32x32_1024_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_idct32x32_1024_add_neon	vp9_short_idct32x32_add_neon.s	/^	vp9_idct32x32_1024_add_neon: @ PROC$/;"	l
+vp9_idct32x32_1_add	vp9_rtcd.h	223;"	d
+vp9_idct32x32_1_add_c	vp9_idct.c	/^void vp9_idct32x32_1_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_idct32x32_1_add_neon	vp9_short_idct32x32_1_add_neon.s	/^	vp9_idct32x32_1_add_neon: @ PROC$/;"	l
+vp9_idct32x32_34_add	vp9_rtcd.h	219;"	d
+vp9_idct32x32_34_add_c	vp9_idct.c	/^void vp9_idct32x32_34_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_idct32x32_add	vp9_idct.c	/^void vp9_idct32x32_add(const int16_t *input, uint8_t *dest, int stride,$/;"	f
+vp9_idct4x4_16_add	vp9_rtcd.h	187;"	d
+vp9_idct4x4_16_add_c	vp9_idct.c	/^void vp9_idct4x4_16_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_idct4x4_16_add_neon	vp9_short_idct4x4_add_neon.s	/^	vp9_idct4x4_16_add_neon: @ PROC$/;"	l
+vp9_idct4x4_1_add	vp9_rtcd.h	183;"	d
+vp9_idct4x4_1_add_c	vp9_idct.c	/^void vp9_idct4x4_1_add_c(const int16_t *input, uint8_t *dest, int dest_stride) {$/;"	f
+vp9_idct4x4_1_add_neon	vp9_short_idct4x4_1_add_neon.s	/^	vp9_idct4x4_1_add_neon: @ PROC$/;"	l
+vp9_idct4x4_add	vp9_idct.c	/^void vp9_idct4x4_add(const int16_t *input, uint8_t *dest, int stride, int eob) {$/;"	f
+vp9_idct8x8_10_add	vp9_rtcd.h	199;"	d
+vp9_idct8x8_10_add_c	vp9_idct.c	/^void vp9_idct8x8_10_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_idct8x8_10_add_neon	vp9_short_idct8x8_add_neon.s	/^	vp9_idct8x8_10_add_neon: @ PROC$/;"	l
+vp9_idct8x8_1_add	vp9_rtcd.h	191;"	d
+vp9_idct8x8_1_add_c	vp9_idct.c	/^void vp9_idct8x8_1_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_idct8x8_1_add_neon	vp9_short_idct8x8_1_add_neon.s	/^	vp9_idct8x8_1_add_neon: @ PROC$/;"	l
+vp9_idct8x8_64_add	vp9_rtcd.h	195;"	d
+vp9_idct8x8_64_add_c	vp9_idct.c	/^void vp9_idct8x8_64_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_idct8x8_64_add_neon	vp9_short_idct8x8_add_neon.s	/^	vp9_idct8x8_64_add_neon: @ PROC$/;"	l
+vp9_idct8x8_add	vp9_idct.c	/^void vp9_idct8x8_add(const int16_t *input, uint8_t *dest, int stride, int eob) {$/;"	f
+vp9_iht16x16_256_add	vp9_rtcd.h	234;"	d
+vp9_iht16x16_256_add_c	vp9_idct.c	/^void vp9_iht16x16_256_add_c(const int16_t *input, uint8_t *dest, int stride,$/;"	f
+vp9_iht16x16_add	vp9_idct.c	/^void vp9_iht16x16_add(TX_TYPE tx_type, const int16_t *input, uint8_t *dest,$/;"	f
+vp9_iht4x4_16_add	vp9_rtcd.h	227;"	d
+vp9_iht4x4_16_add_c	vp9_idct.c	/^void vp9_iht4x4_16_add_c(const int16_t *input, uint8_t *dest, int stride,$/;"	f
+vp9_iht4x4_16_add_neon	vp9_short_iht4x4_add_neon.s	/^	vp9_iht4x4_16_add_neon: @ PROC$/;"	l
+vp9_iht4x4_add	vp9_idct.c	/^void vp9_iht4x4_add(TX_TYPE tx_type, const int16_t *input, uint8_t *dest,$/;"	f
+vp9_iht8x8_64_add	vp9_rtcd.h	231;"	d
+vp9_iht8x8_64_add_c	vp9_idct.c	/^void vp9_iht8x8_64_add_c(const int16_t *input, uint8_t *dest, int stride,$/;"	f
+vp9_iht8x8_64_add_neon	vp9_short_iht8x8_add_neon.s	/^	vp9_iht8x8_64_add_neon: @ PROC$/;"	l
+vp9_iht8x8_add	vp9_idct.c	/^void vp9_iht8x8_add(TX_TYPE tx_type, const int16_t *input, uint8_t *dest,$/;"	f
+vp9_iwht4x4_16_add	vp9_rtcd.h	240;"	d
+vp9_iwht4x4_16_add_c	vp9_idct.c	/^void vp9_iwht4x4_16_add_c(const int16_t *input, uint8_t *dest, int stride) {$/;"	f
+vp9_iwht4x4_1_add	vp9_rtcd.h	237;"	d
+vp9_iwht4x4_1_add_c	vp9_idct.c	/^void vp9_iwht4x4_1_add_c(const int16_t *in, uint8_t *dest, int dest_stride) {$/;"	f
+vp9_iwht4x4_add	vp9_idct.c	/^void vp9_iwht4x4_add(const int16_t *input, uint8_t *dest, int stride, int eob) {$/;"	f
+vp9_pop_neon	vp9_save_reg_neon.s	/^	vp9_pop_neon: @ PROC$/;"	l
+vp9_predict_intra_block_rs	vp9_reconintra.c	/^void vp9_predict_intra_block_rs(const INTRA_PARAM *param, int block_idx, int bwl_in,$/;"	f
+vp9_push_neon	vp9_save_reg_neon.s	/^	vp9_push_neon: @ PROC$/;"	l
+vp9_tm_predictor_16x16	vp9_rtcd.h	126;"	d
+vp9_tm_predictor_32x32	vp9_rtcd.h	167;"	d
+vp9_tm_predictor_4x4	vp9_rtcd.h	44;"	d
+vp9_tm_predictor_4x4_neon	vp9_reconintra_neon.s	/^	vp9_tm_predictor_4x4_neon: @ PROC$/;"	l
+vp9_tm_predictor_8x8	vp9_rtcd.h	85;"	d
+vp9_v_predictor_16x16	vp9_rtcd.h	123;"	d
+vp9_v_predictor_16x16_neon	vp9_reconintra_neon.s	/^	vp9_v_predictor_16x16_neon: @ PROC$/;"	l
+vp9_v_predictor_32x32	vp9_rtcd.h	164;"	d
+vp9_v_predictor_32x32_neon	vp9_reconintra_neon.s	/^	vp9_v_predictor_32x32_neon: @ PROC$/;"	l
+vp9_v_predictor_4x4	vp9_rtcd.h	40;"	d
+vp9_v_predictor_4x4_neon	vp9_reconintra_neon.s	/^	vp9_v_predictor_4x4_neon: @ PROC$/;"	l
+vp9_v_predictor_8x8	vp9_rtcd.h	82;"	d
+vp9_v_predictor_8x8_neon	vp9_reconintra_neon.s	/^	vp9_v_predictor_8x8_neon: @ PROC$/;"	l
+vp9_zero	vp9_common.h	39;"	d
+vp9_zero_array	vp9_common.h	40;"	d
+y_height	vp9_blockd.h	/^  int y_height;$/;"	m	struct:__anon4
+y_width	vp9_blockd.h	/^  int y_width;$/;"	m	struct:__anon4
