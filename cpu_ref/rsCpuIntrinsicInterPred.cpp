@@ -81,79 +81,82 @@ RsdCpuScriptIntrinsicInterPred::RsdCpuScriptIntrinsicInterPred(RsdCpuReferenceIm
     mRef = NULL;
     mParam = NULL;
 
-#if defined(ARCH_ARM_HAVE_VFP)
-    mSwitchConvolve[0] = vp9_convolve_copy_neon;
-    mSwitchConvolve[1] = vp9_convolve_avg_neon;
-    mSwitchConvolve[2] = vp9_convolve8_vert_neon;
-    mSwitchConvolve[3] = vp9_convolve8_avg_vert_neon;
-    mSwitchConvolve[4] = vp9_convolve8_horiz_neon;
-    mSwitchConvolve[5] = vp9_convolve8_avg_horiz_neon;
-    mSwitchConvolve[6] = vp9_convolve8_neon;
-    mSwitchConvolve[7] = vp9_convolve8_avg_neon;
+#if defined(ARCH_ARM_HAVE_VFP) && !defined(FAKE_ARM64_BUILD)
+    if (gArchUseSIMD) {
+        mSwitchConvolve[0] = vp9_convolve_copy_neon;
+        mSwitchConvolve[1] = vp9_convolve_avg_neon;
+        mSwitchConvolve[2] = vp9_convolve8_vert_neon;
+        mSwitchConvolve[3] = vp9_convolve8_avg_vert_neon;
+        mSwitchConvolve[4] = vp9_convolve8_horiz_neon;
+        mSwitchConvolve[5] = vp9_convolve8_avg_horiz_neon;
+        mSwitchConvolve[6] = vp9_convolve8_neon;
+        mSwitchConvolve[7] = vp9_convolve8_avg_neon;
 
-    mSwitchConvolve[8] = vp9_convolve8_vert_neon;
-    mSwitchConvolve[9] = vp9_convolve8_avg_vert_neon;
-    mSwitchConvolve[10] = vp9_convolve8_vert_neon;
-    mSwitchConvolve[11] = vp9_convolve8_avg_vert_neon;
-    mSwitchConvolve[12] = vp9_convolve8_neon;
-    mSwitchConvolve[13] = vp9_convolve8_avg_neon;
-    mSwitchConvolve[14] = vp9_convolve8_neon;
-    mSwitchConvolve[15] = vp9_convolve8_avg_neon;
+        mSwitchConvolve[8] = vp9_convolve8_vert_neon;
+        mSwitchConvolve[9] = vp9_convolve8_avg_vert_neon;
+        mSwitchConvolve[10] = vp9_convolve8_vert_neon;
+        mSwitchConvolve[11] = vp9_convolve8_avg_vert_neon;
+        mSwitchConvolve[12] = vp9_convolve8_neon;
+        mSwitchConvolve[13] = vp9_convolve8_avg_neon;
+        mSwitchConvolve[14] = vp9_convolve8_neon;
+        mSwitchConvolve[15] = vp9_convolve8_avg_neon;
 
-    mSwitchConvolve[16] = vp9_convolve8_horiz_neon;
-    mSwitchConvolve[17] = vp9_convolve8_avg_horiz_neon;
-    mSwitchConvolve[18] = vp9_convolve8_neon;
-    mSwitchConvolve[19] = vp9_convolve8_avg_neon;
-    mSwitchConvolve[20] = vp9_convolve8_horiz_neon;
-    mSwitchConvolve[21] = vp9_convolve8_avg_horiz_neon;
-    mSwitchConvolve[22] = vp9_convolve8_neon;
-    mSwitchConvolve[23] = vp9_convolve8_avg_neon;
+        mSwitchConvolve[16] = vp9_convolve8_horiz_neon;
+        mSwitchConvolve[17] = vp9_convolve8_avg_horiz_neon;
+        mSwitchConvolve[18] = vp9_convolve8_neon;
+        mSwitchConvolve[19] = vp9_convolve8_avg_neon;
+        mSwitchConvolve[20] = vp9_convolve8_horiz_neon;
+        mSwitchConvolve[21] = vp9_convolve8_avg_horiz_neon;
+        mSwitchConvolve[22] = vp9_convolve8_neon;
+        mSwitchConvolve[23] = vp9_convolve8_avg_neon;
 
-    mSwitchConvolve[24] = vp9_convolve8_neon;
-    mSwitchConvolve[25] = vp9_convolve8_avg_neon;
-    mSwitchConvolve[26] = vp9_convolve8_neon;
-    mSwitchConvolve[27] = vp9_convolve8_avg_neon;
-    mSwitchConvolve[28] = vp9_convolve8_neon;
-    mSwitchConvolve[29] = vp9_convolve8_avg_neon;
-    mSwitchConvolve[30] = vp9_convolve8_neon;
-    mSwitchConvolve[31] = vp9_convolve8_avg_neon;
-#else
-    mSwitchConvolve[0] = vp9_convolve_copy_c;
-    mSwitchConvolve[1] = vp9_convolve_avg_c;
-    mSwitchConvolve[2] = vp9_convolve8_vert_c;
-    mSwitchConvolve[3] = vp9_convolve8_avg_vert_c;
-    mSwitchConvolve[4] = vp9_convolve8_horiz_c;
-    mSwitchConvolve[5] = vp9_convolve8_avg_horiz_c;
-    mSwitchConvolve[6] = vp9_convolve8_c;
-    mSwitchConvolve[7] = vp9_convolve8_avg_c;
-
-    mSwitchConvolve[8] = vp9_convolve8_vert_c;
-    mSwitchConvolve[9] = vp9_convolve8_avg_vert_c;
-    mSwitchConvolve[10] = vp9_convolve8_vert_c;
-    mSwitchConvolve[11] = vp9_convolve8_avg_vert_c;
-    mSwitchConvolve[12] = vp9_convolve8_c;
-    mSwitchConvolve[13] = vp9_convolve8_avg_c;
-    mSwitchConvolve[14] = vp9_convolve8_c;
-    mSwitchConvolve[15] = vp9_convolve8_avg_c;
-
-    mSwitchConvolve[16] = vp9_convolve8_horiz_c;
-    mSwitchConvolve[17] = vp9_convolve8_avg_horiz_c;
-    mSwitchConvolve[18] = vp9_convolve8_c;
-    mSwitchConvolve[19] = vp9_convolve8_avg_c;
-    mSwitchConvolve[20] = vp9_convolve8_horiz_c;
-    mSwitchConvolve[21] = vp9_convolve8_avg_horiz_c;
-    mSwitchConvolve[22] = vp9_convolve8_c;
-    mSwitchConvolve[23] = vp9_convolve8_avg_c;
-
-    mSwitchConvolve[24] = vp9_convolve8_c;
-    mSwitchConvolve[25] = vp9_convolve8_avg_c;
-    mSwitchConvolve[26] = vp9_convolve8_c;
-    mSwitchConvolve[27] = vp9_convolve8_avg_c;
-    mSwitchConvolve[28] = vp9_convolve8_c;
-    mSwitchConvolve[29] = vp9_convolve8_avg_c;
-    mSwitchConvolve[30] = vp9_convolve8_c;
-    mSwitchConvolve[31] = vp9_convolve8_avg_c;
+        mSwitchConvolve[24] = vp9_convolve8_neon;
+        mSwitchConvolve[25] = vp9_convolve8_avg_neon;
+        mSwitchConvolve[26] = vp9_convolve8_neon;
+        mSwitchConvolve[27] = vp9_convolve8_avg_neon;
+        mSwitchConvolve[28] = vp9_convolve8_neon;
+        mSwitchConvolve[29] = vp9_convolve8_avg_neon;
+        mSwitchConvolve[30] = vp9_convolve8_neon;
+        mSwitchConvolve[31] = vp9_convolve8_avg_neon;
+    } else
 #endif
+    {
+        mSwitchConvolve[0] = vp9_convolve_copy_c;
+        mSwitchConvolve[1] = vp9_convolve_avg_c;
+        mSwitchConvolve[2] = vp9_convolve8_vert_c;
+        mSwitchConvolve[3] = vp9_convolve8_avg_vert_c;
+        mSwitchConvolve[4] = vp9_convolve8_horiz_c;
+        mSwitchConvolve[5] = vp9_convolve8_avg_horiz_c;
+        mSwitchConvolve[6] = vp9_convolve8_c;
+        mSwitchConvolve[7] = vp9_convolve8_avg_c;
+
+        mSwitchConvolve[8] = vp9_convolve8_vert_c;
+        mSwitchConvolve[9] = vp9_convolve8_avg_vert_c;
+        mSwitchConvolve[10] = vp9_convolve8_vert_c;
+        mSwitchConvolve[11] = vp9_convolve8_avg_vert_c;
+        mSwitchConvolve[12] = vp9_convolve8_c;
+        mSwitchConvolve[13] = vp9_convolve8_avg_c;
+        mSwitchConvolve[14] = vp9_convolve8_c;
+        mSwitchConvolve[15] = vp9_convolve8_avg_c;
+
+        mSwitchConvolve[16] = vp9_convolve8_horiz_c;
+        mSwitchConvolve[17] = vp9_convolve8_avg_horiz_c;
+        mSwitchConvolve[18] = vp9_convolve8_c;
+        mSwitchConvolve[19] = vp9_convolve8_avg_c;
+        mSwitchConvolve[20] = vp9_convolve8_horiz_c;
+        mSwitchConvolve[21] = vp9_convolve8_avg_horiz_c;
+        mSwitchConvolve[22] = vp9_convolve8_c;
+        mSwitchConvolve[23] = vp9_convolve8_avg_c;
+
+        mSwitchConvolve[24] = vp9_convolve8_c;
+        mSwitchConvolve[25] = vp9_convolve8_avg_c;
+        mSwitchConvolve[26] = vp9_convolve8_c;
+        mSwitchConvolve[27] = vp9_convolve8_avg_c;
+        mSwitchConvolve[28] = vp9_convolve8_c;
+        mSwitchConvolve[29] = vp9_convolve8_avg_c;
+        mSwitchConvolve[30] = vp9_convolve8_c;
+        mSwitchConvolve[31] = vp9_convolve8_avg_c;
+    }
 }
 
 RsdCpuScriptIntrinsicInterPred::~RsdCpuScriptIntrinsicInterPred() {

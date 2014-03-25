@@ -35,17 +35,18 @@ LOCAL_SRC_FILES:= \
 	rsCpuIntrinsicYuvToRGB.cpp \
 	convolve/convolve.c
 
+LOCAL_CFLAGS_arm64 += -DARCH_ARM_HAVE_VFP
 LOCAL_CFLAGS_arm64 += -DARCH_ARM_HAVE_NEON
 LOCAL_CFLAGS_64 += -DFAKE_ARM64_BUILD
 LOCAL_ASFLAGS_arm64 += -no-integrated-as
 
-#LOCAL_SRC_FILES_arm64 += \
-#    rsCpuIntrinsics_advsimd_3DLUT.S \
-#    rsCpuIntrinsics_advsimd_Blend.S \
-#    rsCpuIntrinsics_advsimd_Blur.S \
-#    rsCpuIntrinsics_advsimd_Convolve.S \
-#    rsCpuIntrinsics_advsimd_ColorMatrix.S \
-#    rsCpuIntrinsics_advsimd_YuvToRGB.S
+LOCAL_SRC_FILES_arm64 += \
+    rsCpuIntrinsics_advsimd_3DLUT.S \
+    rsCpuIntrinsics_advsimd_Blend.S \
+    rsCpuIntrinsics_advsimd_Blur.S \
+    rsCpuIntrinsics_advsimd_Convolve.S \
+    rsCpuIntrinsics_advsimd_ColorMatrix.S \
+    rsCpuIntrinsics_advsimd_YuvToRGB.S
 
 ifeq ($(ARCH_ARM_HAVE_NEON),true)
     LOCAL_CFLAGS_arm += -DARCH_ARM_HAVE_NEON
